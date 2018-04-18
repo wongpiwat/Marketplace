@@ -19,7 +19,7 @@ class CreateMarketsTable extends Migration {
             $table->unsignedInteger('created_by');
             $table->timestamps();
             $table->foreign('created_by')->references('id')->on('users');
-        }
+        });
     }
 
     public function down() {

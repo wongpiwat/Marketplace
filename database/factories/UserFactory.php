@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
-        'username' => $faker->nameName,
+        'username' => $faker->userName,
         'first_name' => $faker->word,
         'last_name' => $faker->word,
         'address' => $faker->word,
@@ -19,5 +19,5 @@ $factory->define(App\User::class, function (Faker $faker) {
         'is_enabled' => $faker->boolean(90)
     ];
 
-    
+
 });
