@@ -338,6 +338,7 @@ class ComposerStaticInit9666c3cc036910bf61ada12e18555f14
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\ReserveArea' => __DIR__ . '/../..' . '/app/ReserveArea.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Webboard' => __DIR__ . '/../..' . '/app/Webboard.php',
         'App\\WebboardReply' => __DIR__ . '/../..' . '/app/WebboardReply.php',
