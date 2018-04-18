@@ -25,7 +25,6 @@ class CreateMarketsTable extends Migration {
     public function down() {
         Schema::enableForeignKeyConstraints();
         Schema::table('markets', function (Blueprint $table) {
-            $table->dropForeign(['images']);
             $table->dropForeign(['created_by']);
         });
         Schema::disableForeignKeyConstraints();
