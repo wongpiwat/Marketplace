@@ -8,9 +8,7 @@ Route::get('/login', function() {
   return view('auth.login');
 });
 
-Route::get('/create', function () {
-    return view('pages.create');
-});
+Route::get('/create','CreateMarketController@index');
 
 Route::get('/users','UsersController@index');
 Route::get('/users/{id}','UsersController@getID')->where('id','[0-9]+');
