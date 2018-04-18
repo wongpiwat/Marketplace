@@ -8,6 +8,18 @@ Route::get('/login', function() {
   return view('auth.login');
 });
 
+Route::get('/login', function() {
+  return view('auth/login');
+});
+
+Route::get('/register', function() {
+  return view('auth/register');
+});
+
+
+
+
+
 Route::get('/create','CreateMarketController@index');
 
 Route::get('/users','UsersController@index');
