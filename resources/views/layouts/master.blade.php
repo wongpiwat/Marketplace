@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/login" target="_blank">Sign in</a>
+              <a class="nav-link" href="/login">Log in</a>
             </li>
 
             <li class="nav-item">
@@ -35,7 +35,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Sign up</a>
+              <a class="nav-link" href="/register">Register</a>
             </li>
           </ul>
 
