@@ -13,6 +13,6 @@ class UsersTableSeeder extends Seeder {
         $admin->access_level = 'administrator';
         $admin->is_enabled = true;
         $admin->save();
-        $users = factory(App\User::class,50)->create();
+        $users = factory(App\User::class,5)->create();
     }
 }
