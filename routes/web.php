@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('/create', function () {
-    return view('pages.create');
+    return view('createMarket.index');
 });
 
 Route::get('/users','UsersController@index');
