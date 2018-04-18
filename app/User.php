@@ -11,9 +11,7 @@ class User extends Authenticatable {
     use SoftDeletes;
     protected $dates = ['deleted_at']; // เป็น date
     protected $fillable = ['name', 'email', 'password','username','access_level','is_enabled'];
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     public function categories() {
       return $this->hasMany('App\Category','assign_to');

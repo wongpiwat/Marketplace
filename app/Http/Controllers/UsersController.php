@@ -6,21 +6,18 @@ use Illuminate\Http\Request;
 use App\User;
 
 class UsersController extends Controller {
+
     public function index() {
       $users = User::all();
-      return $users;
+      return view('pages.users', ['users' => $users]);
     }
 
-    public function show($id) {
-      $users = User::findOrFail($id);
-      return $users;
+    public function getID($id) {
+      $user = User::findOrFail($id);
+      return view('pages.user', ['user' => $user]);
     }
 
-    public function showName($name) {
+    public function getName($name) {
         return 'Name: '.$name;
-    }
-
-    public function showWelcome($name) {
-        return view('welcome');
     }
 }

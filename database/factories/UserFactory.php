@@ -9,7 +9,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'password' => bcrypt('secret'), // secret
         'remember_token' => null,
         'username' => $faker->userName,
-        'access_level' => $faker->randomElement(['viewer','reporter','updater','developer','manager']),
+        'type' => $faker->randomElement(['seller']),
         'is_enabled' => $faker->boolean(90)
     ];
 });

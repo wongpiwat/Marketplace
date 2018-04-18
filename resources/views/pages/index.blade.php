@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @push('style')
     <style>
         .my-style {font-size: 1.6em;}
@@ -7,6 +7,12 @@
 
 @section('content')
     <div id="vue-app">
+      <a href="/create">Create Market</a><br>
+      <a href="/users">Show Users</a><br>
+      <a href="/projects">Show Projects</a><br>
+      <a href="/categories">Show Categories</a><br>
+      <a href="/issues">Show Issues</a><br>
+      {{--
         <p>v of VueJS</p>
         <!-- @{{ view ของ JS}} -->
         <p>Number: @{{ number }}</p>
@@ -48,9 +54,12 @@
           <example-component text="Text"></example-component>
           <example-component text="Number" v-bind:heading="seconds"></example-component>
         </div>
+        --}}
 </div>
 @endsection
 
 @section('content-bottom')
+ {{--
   <div id="page1">Text of content bottom</div>
+  --}}
 @endsection
