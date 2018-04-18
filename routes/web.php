@@ -4,9 +4,7 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-Route::get('/create', function () {
-    return view('createMarket.index');
-});
+Route::get('/create','CreateMarketController@index');
 
 Route::get('/users','UsersController@index');
 Route::get('/users/{id}','UsersController@getID')->where('id','[0-9]+');

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CreateMarketController extends Controller {
 
     public function index() {
-      
+      return view('createMarket.index');
     }
 
     public function create() {
