@@ -6,16 +6,32 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class User extends Authenticatable {
     use Notifiable;
     use SoftDeletes;
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $dates = ['deleted_at']; // เป็น date
-    protected $fillable = ['name', 'email', 'password','username','access_level','is_enabled'];
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['username', 'first_name', 'password','last_name','birthday','is_enabled','phone','image','address','type'];
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $hidden = ['password', 'remember_token'];
 
-    public function categories() {
-      return $this->hasMany('App\Category','assign_to');
-    }
+    
 
     public function scopeAdmin($query) {
       return $query->where('access_level','administrator');
@@ -28,4 +44,5 @@ class User extends Authenticatable {
     public function scopeOfLevel($query,$level) {
       return $query->where('access_level','viewer');
     }
+    
 }
