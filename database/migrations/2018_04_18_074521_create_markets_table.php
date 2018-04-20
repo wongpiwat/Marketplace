@@ -13,7 +13,11 @@ class CreateMarketsTable extends Migration {
             $table->string('location');
             $table->string('start_time');
             $table->string('close_time');
-            $table->string('date');
+            $table->string('day');
+            $table->string('organizer_name');
+            $table->string('contact_name');
+            $table->string('email');
+            $table->string('phone');
             $table->text('details')->nullable();
             $table->string('teaser')->nullable();
             $table->unsignedInteger('created_by');

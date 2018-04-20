@@ -1799,7 +1799,11 @@ class ComposerStaticInit9666c3cc036910bf61ada12e18555f14
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+<<<<<<< HEAD
         'MarketsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MarketsTableSeeder.php',
+=======
+        'MarketTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MarketTableSeeder.php',
+>>>>>>> fe16a7011818d0e5e149b49b8a885ecba64bd123
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -3535,7 +3539,11 @@ class ComposerStaticInit9666c3cc036910bf61ada12e18555f14
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+<<<<<<< HEAD
         'WebboardsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/WebboardsTableSeeder.php',
+=======
+        'WebboardRepliesSeeder' => __DIR__ . '/../..' . '/database/seeds/WebboardRepliesSeeder.php',
+>>>>>>> fe16a7011818d0e5e149b49b8a885ecba64bd123
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',

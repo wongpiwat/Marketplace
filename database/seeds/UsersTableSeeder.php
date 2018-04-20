@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 class UsersTableSeeder extends Seeder {
 
     public function run() {
+<<<<<<< HEAD
       
         // $users=factory(App\User::class,5)->make();  
 
@@ -59,6 +60,11 @@ class UsersTableSeeder extends Seeder {
 
 
         // factory(App\User::class,1)->create();    
+=======
+
+       factory(App\User::class,5)->create();
+
+>>>>>>> fe16a7011818d0e5e149b49b8a885ecba64bd123
     }
 }
 
