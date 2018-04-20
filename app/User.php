@@ -10,22 +10,22 @@ class User extends Authenticatable {
     use Notifiable;
     use SoftDeletes;
     protected $dates = ['deleted_at']; // เป็น date
-    protected $fillable = ['name', 'email', 'password','username','access_level','is_enabled'];
+    protected $fillable = ['username', 'first_name', 'last_name','password','email','address','birthday','phone','image','type','is_enabled'];
     protected $hidden = ['password', 'remember_token'];
 
-    public function categories() {
-      return $this->hasMany('App\Category','assign_to');
-    }
-
-    public function scopeAdmin($query) {
-      return $query->where('access_level','administrator');
-    }
-
-    public function scopeViewer($query) {
-      return $query->where('access_level','viewer');
-    }
-
-    public function scopeOfLevel($query,$level) {
-      return $query->where('access_level','viewer');
-    }
+    // public function categories() {
+    //   return $this->hasMany('App\Category','assign_to');
+    // }
+    //
+    // public function scopeAdmin($query) {
+    //   return $query->where('access_level','administrator');
+    // }
+    //
+    // public function scopeViewer($query) {
+    //   return $query->where('access_level','viewer');
+    // }
+    //
+    // public function scopeOfLevel($query,$level) {
+    //   return $query->where('access_level','viewer');
+    // }
 }
