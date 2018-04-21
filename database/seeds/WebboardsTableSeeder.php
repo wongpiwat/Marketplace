@@ -30,5 +30,13 @@ class WebboardsTableSeeder extends Seeder
         $web2->details ="ร้านอาหารใกล้สถานที่ท่องเที่ยวที่มีวิวสวยๆอยู่ตรงไหนบ้างครับ";
         $web2->created_by =$user2;
         $web2->save();
+
+        $user3 = App\User::where('username', 'Lek')->value('id');        
+        $web3 = new App\Webboard;
+        $web3->market_id = $market1;
+        $web3->topic ='สวัสดีครับ';
+        $web3->details ="มีใครอยู่ไหม?";
+        $web3->created_by =$user3;
+        $web3->save();
     }
 }

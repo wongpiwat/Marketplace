@@ -12,10 +12,10 @@ class CreateWebboardRepliesTable extends Migration {
             $table->increments('id');
             $table->text('comment');
             $table->unsignedInteger('created_by');
-            $table->unsignedInteger('reply_by');
+            $table->unsignedInteger('reply_to');
             $table->timestamps();
             $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('reply_by')->references('id')->on('webboards');
+            $table->foreign('reply_to')->references('id')->on('webboards');
 
         });
     }
@@ -24,7 +24,7 @@ class CreateWebboardRepliesTable extends Migration {
         Schema::enableForeignKeyConstraints();
         Schema::table('webboard_replies', function (Blueprint $table) {
             $table->dropForeign(['created_by']);
-            $table->dropForeign(['reply_by']);
+            $table->dropForeign(['reply_to']);
         });
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('webboard_replies');

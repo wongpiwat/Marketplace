@@ -1,5 +1,7 @@
-
+@extends('layouts.master')
+<div>
 <h1>Webboard<h1>
+</div>
 <table class="table table-striped">
   <thead class='thead-dark'>
     <tr>
