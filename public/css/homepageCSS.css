@@ -1,0 +1,12 @@
+.carousel-inner img {
+     width: 100%;
+     height: 500px;
+ }
+ body{
+   background-color: rgb(236, 240, 245);
+ }
+.color-card{
+  background-color: rgb(62, 80, 98);
+  color: white;
+
+}

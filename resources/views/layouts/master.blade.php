@@ -5,8 +5,8 @@
     <title>The Marketplace</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/homepageTheme.css" type="text/css" media="all">
-  
+    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -15,7 +15,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark " style="background-color:rgb(62, 80, 98);">
       <div class="container">
         <a href="../" class="navbar-brand">The Marketplace</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,9 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
           <ul class="nav navbar-nav ml-auto">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            </form>
+
 
             <li class="nav-item">
               <span class="nav-link">|</span>
@@ -48,9 +46,13 @@
         </div>
       </div>
     </div>
+    <br><br><br>
 
 
-      @yield('content')
+      <div class="row" style="">
+            @yield('content')
+      </div>
+
 
 
   <div class="container">
