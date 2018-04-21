@@ -9,7 +9,7 @@
 
 @section('content')
 
-
+      <br><br><br><br><br>
       <div class="container" style=" width:100%;margin-top:30px;">
         <div class="row">
           <div class="col-md-9" >
@@ -56,8 +56,8 @@
 
 
           <div class="col-md-3" >
-            <form class="form-inline my-2 my-lg-0" style="margin-left:-10px; width:110%">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search..">
+            <form class="form-inline" style="margin-left:-10px; width:110%;">
+              <input class="form-control " type="text" placeholder="Search.." style="width:110%;">
             </form>
             <br>
             <div class="card " style="width:110%;margin-left:-10px;">
