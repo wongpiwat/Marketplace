@@ -5,6 +5,12 @@
     <title>The Marketplace</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/homepageTheme.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     @stack('style')
   </head>
   <body>
@@ -43,9 +49,9 @@
       </div>
     </div>
 
-    <div class="container">
+
       @yield('content')
-  </div>
+
 
   <div class="container">
       @yield('content-bottom')
