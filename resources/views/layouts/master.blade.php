@@ -37,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-              <span class="nav-link"> </span>
+              <span class="nav-link">|</span>
             </li>
 
             <li class="nav-item">

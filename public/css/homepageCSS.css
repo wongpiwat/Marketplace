@@ -10,3 +10,29 @@
   color: white;
 
 }
+.text-social{
+  margin-left: 5px;
+  color: black;
+
+
+}
+
+.image-social{
+  width: 30px;
+  height: 30px;
+
+}
+a:hover{
+    text-decoration: none;
+}
+.slide_description{
+width:100%;
+text-align:justify;
+background-color:rgba(0,0,0,0.5);
+height:20%;
+margin-left: -125px;
+margin-bottom: -20px;
+}
+.slide_description_space{
+  margin-left: 20px;
+}
