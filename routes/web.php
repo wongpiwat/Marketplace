@@ -21,6 +21,8 @@ Route::get('/register', function() {
 
 
 Route::get('/create','CreateMarketController@index');
+Route::post('/create','CreateMarketController@store');
+
 
 Route::get('/users','UsersController@index');
 Route::get('/users/{id}','UsersController@getID')->where('id','[0-9]+');
@@ -30,4 +32,3 @@ Route::get('/users/{name}','UsersController@getName')->where('name','[A-Za-z][A-
 
 
 Route::get('/webboard/{id}','WebboardController@index');
-
