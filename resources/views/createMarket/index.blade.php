@@ -57,7 +57,7 @@
 
       <p><b>Place Marker On Map<span style="color: red;">*</span></b></p>
       <div id="map"></div>
-      <button type="button" style="width: 20%; height: 2%;float: right;background-color: #4CAF50;color: white;padding: 10px 18px; margin-top: -1%; border: none;cursor: pointer;" onclick="location.href='http://google.com'">Next</button>
+      <button class="btn btn-primary" type="button" onclick="location.href='http://google.com'">Next</button>
     </form>
   </div>
 </div>
