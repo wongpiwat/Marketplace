@@ -12,6 +12,7 @@
       <br><br><br><br><br>
       <div class="container" style=" width:100%;margin-top:30px;">
         <div class="row">
+          <!-- midcontent -->
           <div class="col-md-9" >
             <div id="demo" class="carousel slide" data-ride="carousel" >
   <!-- <ul class="carousel-indicators" >
@@ -62,25 +63,161 @@
     <span class="carousel-control-next-icon"></span>
   </a>
   </div>
+  <br>
+  <!-- recommend -->
+  <div class="row">
+        <div class="col-md-6">
+           <div class="card">
+             <div class="card-header" style="background-color:rgb(122,200,204);height:0px;"></div>
+             <div class="card-header">RECOMMEND</div>
+             <div class="card-body">
+               <div class="recommend">
+                 <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" style="width:100%;height:100%">
+                 <br>
+                 <br>
+                  <h6 style="color: rgb(122,200,204);"><a href="#">NULLA QUIS LACUS TURPIS</a></h6>
+                  <p> NOV 18,2015</p>
+
+               </div>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3">
+                   <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/fashion-blogger.jpg" alt="" class="image_recent" >
+
+                 </div>
+                 <div class="col-md-9">
+                   <div class="recent_description">
+                     <a href="#">Blogging For Fashion</a>
+                     <br>
+                    <p> DEC 2,2015</p>
+
+                   </div>
+                 </div>
+
+               </div>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3">
+                   <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" class="image_recent" >
+
+                 </div>
+                 <div class="col-md-9">
+                   <div class="recent_description">
+                     <a href="#">Blogging For Fuji</a>
+                     <br>
+                    <p> NOV 18,2015</p>
+
+                   </div>
+                 </div>
+
+               </div>
+               <hr>
+               <div class="row">
+                 <div class="col-md-3">
+                   <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
+
+                 </div>
+                 <div class="col-md-9">
+                   <div class="recent_description">
+                     <a href="#">Blogging For Flowers</a>
+                     <br>
+                    <p> MAY 22,2015</p>
+
+                   </div>
+                 </div>
+
+               </div>
+
+
+             </div>
+
+           </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header" style="background-color:rgb(230,84,61);height:0px;"></div>
+            <div class="card-header">อะไรไม่รุ้ใส่ไปก่อน</div>
+            <div class="card-body">
+              <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" style="width:100%;height:100%">
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+  </div>
 
 
   </div>
-  <!-- end-col-8 -->
+  <!-- end-midcontent -->
+  <br><br><br>
 
-
+          <!-- right-column -->
           <div class="col-md-3" >
             <form class="form-inline" style="margin-left:-10px; width:110%;">
               <input class="form-control " type="text" placeholder="Search.." style="width:110%;">
             </form>
             <br>
+            <!-- recent post -->
             <div class="card " style="width:110%;margin-left:-10px;">
               <div class="card-header color-card"><h6>RECENT POST</h6></div>
               <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/fashion-blogger.jpg" alt="" class="image_recent" >
+
+                  </div>
+                  <div class="col-md-9">
+                    <div class="recent_description">
+                      <a href="#">Blogging For Fashion</a>
+                      <br>
+                     <p> DEC 2,2015</p>
+
+                    </div>
+                  </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" class="image_recent" >
+
+                  </div>
+                  <div class="col-md-9">
+                    <div class="recent_description">
+                      <a href="#">Blogging For Fuji</a>
+                      <br>
+                     <p> NOV 18,2015</p>
+
+                    </div>
+                  </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
+
+                  </div>
+                  <div class="col-md-9">
+                    <div class="recent_description">
+                      <a href="#">Blogging For Flowers</a>
+                      <br>
+                     <p> MAY 22,2015</p>
+
+                    </div>
+                  </div>
+
+                </div>
 
               </div>
             </div>
             <br>
-
+            <!-- follow us -->
             <div class="card " style="width:110%;margin-left:-10px; ">
               <div class="card-header color-card"><h6>FOLLOW US</h6></div>
               <div class="card-body">
