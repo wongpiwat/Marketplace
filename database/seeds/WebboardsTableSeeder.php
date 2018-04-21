@@ -13,6 +13,7 @@ class WebboardsTableSeeder extends Seeder
     {
         $market1 = App\Market::where('name', 'KU Fest')->value('id');
         $user1 = App\User::where('username', 'admin')->value('id');        
+        
         $web1 = new App\Webboard;
         $web1->market_id = $market1;
         $web1->topic ='สอบถามสถานที่';
@@ -20,8 +21,9 @@ class WebboardsTableSeeder extends Seeder
         $web1->created_by =$user1;
         $web1->save();
 
-        $market2 = App\Market::where('name', 'KU Fest')->value('id');
-        $user2 = App\User::where('username', 'admin')->value('id');        
+        $market2 = App\Market::where('name', 'Apache Ser')->value('id');
+        $user2 = App\User::where('username', 'Sunut')->value('id');        
+       
         $web2 = new App\Webboard;
         $web2->market_id = $market2;
         $web2->topic ='สอบถามอาหารแถวในเมืองลพบุรี';

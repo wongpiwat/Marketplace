@@ -11,6 +11,6 @@ class MarketTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Market::class, 5)->create();
+        // factory(App\Market::class, 5)->create();
     }
 }

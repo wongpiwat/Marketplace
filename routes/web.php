@@ -26,5 +26,8 @@ Route::get('/users','UsersController@index');
 Route::get('/users/{id}','UsersController@getID')->where('id','[0-9]+');
 Route::get('/users/{name}','UsersController@getName')->where('name','[A-Za-z][A-Za-z0-9]*');
 
-Route::get('1/webboard','WebboardController@index');
+
+
+
+Route::get('/webboard/{id}','WebboardController@index');
 
