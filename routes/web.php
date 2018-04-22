@@ -16,9 +16,9 @@ Route::get('/register', function() {
   return view('auth/register');
 });
 
-Route::get('/market','MarketController@index');
-Route::get('/market/create','MarketController@create');
-Route::post('/market','MarketController@store');
+Route::get('/market','MarketsController@index');
+Route::get('/market/create','MarketsController@create');
+Route::post('/market','MarketsController@store');
 
 
 Route::get('/webboard/{id}','WebboardController@index');

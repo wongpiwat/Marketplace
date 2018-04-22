@@ -13,7 +13,7 @@ class MarketsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('market.index');
+        return view('markets.index');
     }
 
     /**
@@ -22,7 +22,7 @@ class MarketsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('createMarket.index');
+        return view('Markets.create');
     }
 
     /**
