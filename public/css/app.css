@@ -3684,8 +3684,6 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 1rem;
-  margin-top: -15px;
 }
 
 .navbar>.container, .navbar>.container-fluid {
@@ -3701,8 +3699,6 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .navbar-brand {
   display: inline-block;
-  /* padding-top: .3125rem; */
-  /* padding-bottom: .3125rem; */
   margin-right: 25rem;
   font-size: 2rem;
   line-height: inherit;
