@@ -2,7 +2,7 @@
      width: 100%;
      height: 500px;
  }
- 
+
 .color-card{
   background-color: rgb(62, 80, 98);
   color: white;
@@ -28,7 +28,7 @@ width:100%;
 text-align:justify;
 background-color:rgba(0,0,0,0.5);
 height:20%;
-margin-left: -125px;
+margin-left: -127px;
 margin-bottom: -20px;
 }
 .slide_description_space{
