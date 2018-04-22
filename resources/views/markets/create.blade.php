@@ -48,7 +48,7 @@
       <p><b>Email<span style="color: red;">*</span></b> <input type='text' name='email' value='{{ old('email') }}'></p>
       <p><b>Phone<span style="color: red;">*</span></b> <input type='text' name='phone' value='{{ old('phone') }}'></p>
 
-      <p><b>Details</b></p>
+      <p><b>Description</b></p>
       <textarea class="form-control" rows="8"></textarea><br><br>
 
       <p><b>Youtube Video Link</b> <input v-model.trim="item"></p>
