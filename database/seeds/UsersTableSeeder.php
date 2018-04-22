@@ -7,8 +7,8 @@ use Illuminate\Database\Seeder;
 class UsersTableSeeder extends Seeder {
 
     public function run() {
-      
-        // $users=factory(App\User::class,5)->make();  
+
+        // $users=factory(App\User::class,5)->make();
 
         $admin = new App\User;
         $admin->username = 'admin';
@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder {
 
 
 
-        // factory(App\User::class,1)->create();    
+        factory(App\User::class,10)->create();    
     }
 }
 
@@ -80,12 +80,9 @@ class UsersTableSeeder extends Seeder {
 //         'birthday' =>$faker->dateTimeThisCentury->format('Y-m-d'),
 //         'phone' => $faker->phoneNumber,
 //         'image' => $faker->word,
-//         'address' => $faker->word,      
+//         'address' => $faker->word,
 //         'remember_token' => null,
 //         'type' => $faker->randomElement(['seller','organizer','administrator']),
 //         'is_enabled' => $faker->boolean(90)
-//     ];  
+//     ];
 // });
-
-
-

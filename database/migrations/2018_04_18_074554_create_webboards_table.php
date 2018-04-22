@@ -25,7 +25,7 @@ class CreateWebboardsTable extends Migration {
         Schema::enableForeignKeyConstraints();
         Schema::table('webboards', function (Blueprint $table) {
             $table->dropForeign(['market_id']);
-            $table->dropForeign(['reply_by']);
+            $table->dropForeign(['created_by']);
         });
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('webboards');

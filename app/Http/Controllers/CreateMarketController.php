@@ -18,17 +18,7 @@ class CreateMarketController extends Controller {
     public function store(Request $request) {
       // $request->validate(['name'=>'required|min:4|max:255|unique:projects,name' , 'description' => 'required|min:10' , 'view_status' => 'required']);
       $market = new Market;
-      $market->username = $request->input('username');
-      $market->first_name = $request->input('first_name');
-      $market->last_name = $request->input('last_name');
-      $market->password = $request->input('password');
-      $market->email = $request->input('email');
-      $market->address = $request->input('address');
-      $market->birthday = $request->input('birthday');
-      $market->phone = $request->input('phone');
-      $market->image = $request->input('image');
-      $market->type = $request->input('type');
-      $market->is_enabled = $request->input('is_enabled');
+      $market->username = $request->input('name');
       $market->save();
       return redirect('/create/'.$market->id);
     }

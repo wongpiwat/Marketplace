@@ -2,7 +2,6 @@
 
 @push('style')
 <link rel="stylesheet" href="/css/jquery-clockpicker.min.css">
-<!-- <link rel="stylesheet" href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css"> -->
     <style>
     p , span {
       font-size: 18px;
@@ -20,9 +19,10 @@
 <div class="card">
   <div class="card-header">Create Maket</div>
   <div class="card-body">
-    <form class="" action="index.html" method="post">
-      <p><b>Market Name<span style="color: red;">*</span> <input v-model.trim="item"></b></p>
-      <p><b>Location<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
+    <form action="/create-market" method="post">
+      {{ csrf_field() }}
+      <p><b>Market Name<span style="color: red;">*</span> <input type='text' name='name' value='{{ old('name') }}'></b></p>
+      <p><b>Location<span style="color: red;">*</span></b> <input type='text' name='location' value='{{ old('location') }}'></p>
 
       <p><b>Start Time<span style="color: red;">*</span></b>
       <input id="inputStartTime" value="00:00">
@@ -57,7 +57,7 @@
 
       <p><b>Place Marker On Map<span style="color: red;">*</span></b></p>
       <div id="map"></div>
-      <button class="btn btn-primary" type="button" onclick="location.href='http://google.com'">Next</button>
+      <button class="btn btn-primary" type="button">Next</button>
     </form>
   </div>
 </div>
