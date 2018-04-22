@@ -246,3 +246,15 @@
 
 
 @endsection
+
+@section('content-footer')
+<footer class="card-footer">
+  <div class="container">
+    <p>Marketplace Corporation</p>
+    <p>302, Ngamwongwan Road, Lat Yao Sub-district</p>
+    <p>Chatuchak District, Bangkok, Thailand, 10900</p>
+    <hr>
+    <span>© Marketplace 2018</span>
+  </div>
+</footer>
+@endsection

@@ -48,15 +48,9 @@
       @yield('content')
   </div>
 
-  <footer class="card-footer">
-    <div class="container">
-      <p>Marketplace Corporation</p>
-      <p>302, Ngamwongwan Road, Lat Yao Sub-district</p>
-      <p>Chatuchak District, Bangkok, Thailand, 10900</p>
-      <hr>
-      <span>© Marketplace 2018</span>
-    </div>
-</footer>
+  <div>
+      @yield('content-footer')
+  </div>
 
   <script src="/js/app.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
