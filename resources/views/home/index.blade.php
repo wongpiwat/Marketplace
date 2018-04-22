@@ -1,16 +1,12 @@
 @extends('layouts.master')
 @push('style')
 
-<link rel="stylesheet" href="/css/homepageCSS.css">
-
-
 @endpush
 
 
 @section('content')
 
-      <br><br><br><br><br>
-      <div class="container" style=" width:100%;margin-top:30px;">
+      <div class="container">
         <div class="row">
           <!-- midcontent -->
           <div class="col-md-9" >
