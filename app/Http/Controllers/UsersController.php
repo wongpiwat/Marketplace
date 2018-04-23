@@ -2,22 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller {
 
     public function index() {
       $users = User::all();
-      return view('pages.users', ['users' => $users]);
+      return view('users.index', ['users' => $users]);
     }
 
-    public function getID($id) {
-      $user = User::findOrFail($id);
-      return view('pages.user', ['user' => $user]);
+    public function create() {
+
     }
 
-    public function getName($name) {
-        return 'Name: '.$name;
+
+    public function store(Request $request) {
+
     }
+
+    public function show(User $user) {
+      return view('users.show', ['user' => $user]);
+    }
+
+    public function edit(User $user) {
+
+    }
+
+    public function update(Request $request, User $user) {
+
+    }
+
+    public function destroy(User $user) {
+      $user->delete();
+      return redirect('/users');
+    }
+
 }

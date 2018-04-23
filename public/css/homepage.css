@@ -1,0 +1,69 @@
+.carousel-inner img {
+     width: 100%;
+     height: 500px;
+ }
+
+.color-card{
+  background-color: rgb(62, 80, 98);
+  color: white;
+
+}
+.text-social{
+  margin-left: 5px;
+  color: black;
+
+
+}
+
+.image-social{
+  width: 30px;
+  height: 30px;
+
+}
+a:hover{
+    text-decoration: none;
+}
+.slide_description{
+width:100%;
+text-align:justify;
+background-color:rgba(0,0,0,0.5);
+height:20%;
+margin-left: -127px;
+margin-bottom: -20px;
+}
+.slide_description_space{
+  margin-left: 20px;
+}
+.image_recent{
+  width: 50px;
+  height: 50px;
+}
+.recent_description{
+  font-size: 14px;
+  margin-left: -5px;
+
+}
+.recent_description p {
+  color:gray;
+  font-size: 12px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.recommend {
+  color: rgb(122,200,204);
+
+
+}
+.recommend a{
+  color: rgb(122,200,204);
+}
+.recommend h6{
+  color: rgb(122,200,204);
+}
+.recommend p{
+  color:gray;
+  font-size: 12px;
+
+}

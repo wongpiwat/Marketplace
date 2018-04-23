@@ -2,7 +2,6 @@
 
 @push('style')
 <link rel="stylesheet" href="/css/jquery-clockpicker.min.css">
-<!-- <link rel="stylesheet" href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css"> -->
     <style>
     p , span {
       font-size: 18px;
@@ -18,11 +17,12 @@
 
 @section('content')
 <div class="card">
-  <div class="card-header">Create Maket</div>
+  <div class="card-header">Create Market</div>
   <div class="card-body">
-    <form class="" action="index.html" method="post">
-      <p><b>Market Name<span style="color: red;">*</span> <input v-model.trim="item"></b></p>
-      <p><b>Location<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
+    <form action="/market" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
+      <p><b>Market Name<span style="color: red;">*</span> <input type='text' name='name' value='{{ old('name') }}'></b></p>
+      <p><b>Location<span style="color: red;">*</span></b> <input type='text' name='location' value='{{ old('location') }}'></p>
 
       <p><b>Start Time<span style="color: red;">*</span></b>
       <input id="inputStartTime" value="00:00">
@@ -35,29 +35,30 @@
       <span class="glyphicon glyphicon-time"></span> Time</button></p>
 
       <p><b>Day<span style="color: red;">*</span></b></p>
-      <input type="checkbox" value="sunday"><span style="margin-left:1%">Sunday</span><br>
-      <input type="checkbox" value="monday"><span style="margin-left:1%">Monday</span><br>
-      <input type="checkbox" value="tuesday"><span style="margin-left:1%">Tuesday</span><br>
-      <input type="checkbox" value="wednesday"><span style="margin-left:1%">Wednesday</span><br>
-      <input type="checkbox" value="thursday"><span style="margin-left:1%">Thursday</span><br>
-      <input type="checkbox" value="friday"><span style="margin-left:1%">Friday</span><br>
-      <input type="checkbox" value="saturday"><span style="margin-left:1%">Saturday</span><br><br>
+      <input name="sunday" type="checkbox" value="sunday"><span style="margin-left:1%">Sunday</span><br>
+      <input name="monday" type="checkbox" value="monday"><span style="margin-left:1%">Monday</span><br>
+      <input name="tuesday" type="checkbox" value="tuesday"><span style="margin-left:1%">Tuesday</span><br>
+      <input name="wednesday" type="checkbox" value="wednesday"><span style="margin-left:1%">Wednesday</span><br>
+      <input name="thursday" type="checkbox" value="thursday"><span style="margin-left:1%">Thursday</span><br>
+      <input name="friday" type="checkbox" value="friday"><span style="margin-left:1%">Friday</span><br>
+      <input name="saturday" type="checkbox" value="saturday"><span style="margin-left:1%">Saturday</span><br><br>
 
-      <p><b>Organizer Name<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
-      <p><b>Contact Name<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
-      <p><b>Email<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
-      <p><b>Phone<span style="color: red;">*</span></b> <input v-model.trim="item"></p>
+      <p><b>Organizer Name<span style="color: red;">*</span></b> <input type='text' name='organizer-name' value='{{ old('organizer-name') }}'></p>
+      <p><b>Contact Name<span style="color: red;">*</span></b> <input type='text' name='contact-name' value='{{ old('contact-name') }}'></p>
+      <p><b>Email<span style="color: red;">*</span></b> <input type='text' name='email' value='{{ old('email') }}'></p>
+      <p><b>Phone<span style="color: red;">*</span></b> <input type='text' name='phone' value='{{ old('phone') }}'></p>
 
-      <p><b>Details</b></p>
+      <p><b>Description</b></p>
       <textarea class="form-control" rows="8"></textarea><br><br>
 
       <p><b>Youtube Video Link</b> <input v-model.trim="item"></p>
-      <p><b>Market Images<span style="color: red;">*</span></b></p>
+      <p><b>Market Images<span style="color: red;">*</span></b>
+      <input type="file" name="file">
       <!-- <p><b>Market Layout<span style="color: red;">*</span></b></p> -->
 
       <p><b>Place Marker On Map<span style="color: red;">*</span></b></p>
       <div id="map"></div>
-      <button class="btn btn-primary" type="button" onclick="location.href='http://google.com'">Next</button>
+      <button class="btn btn-primary" type="submit">Next</button>
     </form>
   </div>
 </div>

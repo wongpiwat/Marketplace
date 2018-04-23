@@ -18,7 +18,7 @@ class CreateMarketsTable extends Migration {
             $table->string('contact_name');
             $table->string('email');
             $table->string('phone');
-            $table->text('details')->nullable();
+            $table->text('description')->nullable();
             $table->string('teaser')->nullable();
             $table->unsignedInteger('created_by');
             $table->timestamps();

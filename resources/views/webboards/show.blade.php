@@ -51,6 +51,8 @@
       <div>
       Date: {{ $p->created_at }}
       </div>
+
+      
       </td>
     </tr>
     @endforeach
