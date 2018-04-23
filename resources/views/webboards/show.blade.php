@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('content')
 <div>
 <h1>Webboard Reply<h1>
 </div>
@@ -52,9 +53,11 @@
       Date: {{ $p->created_at }}
       </div>
 
-      
+
       </td>
     </tr>
     @endforeach
   </tbody>
 </table>
+
+@endsection

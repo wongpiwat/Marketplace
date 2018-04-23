@@ -1,10 +1,14 @@
 @extends('layouts.master')
+
+@section('content')
+
 <div>
 <h1>Webboard<h1>
 </div>
 <div>
 <h2>{{ $nameEvent }}</h2>
 </div>
+
 
 <div>
 <form action="/webboard/{{ $id_market }}/create" method="post">
@@ -50,3 +54,6 @@
     @endforeach
   </tbody>
 </table>
+
+
+@endsection

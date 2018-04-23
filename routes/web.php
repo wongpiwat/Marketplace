@@ -16,9 +16,6 @@ Route::get('/register', function() {
   return view('auth/register');
 });
 
-<<<<<<< HEAD
-
-
 
 
 Route::get('/create','CreateMarketController@index');
@@ -40,11 +37,3 @@ Route::delete('/webboard/{web}/' , 'WebboardController@destroy');
 
 
 
-=======
-Route::get('/market','MarketsController@index');
-Route::get('/market/create','MarketsController@create');
-Route::post('/market','MarketsController@store');
-
-
-Route::get('/webboard/{id}','WebboardController@index');
->>>>>>> b8f90a3590a3d14b698aff4a8007037b42e1e48a

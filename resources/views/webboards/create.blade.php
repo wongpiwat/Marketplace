@@ -1,4 +1,6 @@
 @extends('layouts.master')
+
+@section('content')
 <div>
 <h1>Create Webboard<h1>
 </div>
@@ -39,3 +41,5 @@
     </div>
 <button type="submit">Submit</button>
 </form>
+
+@endsection
