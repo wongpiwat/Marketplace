@@ -28,5 +28,14 @@ class WebboardRepliesSeeder extends Seeder
         $web2replie->created_by = $user2;
         $web2replie->reply_to =$web2;
         $web2replie->save();
+
+        $web3 = App\Webboard::where('topic', 'สอบถามสถานที่')->value('id');
+        $user3 = App\User::where('username', 'admin')->value('id');        
+
+        $web3replie = new App\WebboardReply;
+        $web3replie->comment = 'มีใครอยู่ไหมครับ';
+        $web3replie->created_by = $user3;
+        $web3replie->reply_to =$web3;
+        $web3replie->save();
     }
 }

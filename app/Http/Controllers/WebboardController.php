@@ -12,32 +12,61 @@ class WebboardController extends Controller {
     //    $webboard = Webboard::all($id);
 
     $webboard = DB::table('webboards')->where('market_id', $id)->get(); 
-    return view('webboards.index', ['webboards' => $webboard]);
+    $nameEvent = DB::table('markets')->where('id', $id)->value('name'); 
+    $id_market = DB::table('markets')->where('id', $id)->value('id'); 
+    return view('webboards.index', ['webboards' => $webboard,'nameEvent' => $nameEvent,'id_market' => $id_market ]);
     }
 
-    public function create() {
+    public function create($id_market) {
+        // $view_status=[
+        //     'public' => 'Public',
+        //     'private' => 'Private'
+        // ];
 
+        $nameEvent = DB::table('markets')->where('id', $id_market)->value('name'); 
+
+        return view('webboards.create',['nameEvent'=>$nameEvent,'id_market'=> $id_market]);
     }
 
     public function store(Request $request) {
+        // $request->validate(['topic'=>'required|min:4|max:255','details|min:10'=>'required']);
+        $webboard = new  Webboard;
+        $webboard->market_id =$request->input('id');  
+        $webboard->topic = $request->input('name');        
+        $webboard->details =$request->input('description');
+        $webboard->created_by= "1";
+        $webboard->save();
 
+        return redirect('/webboard/'.$request->input('id'));
     }
 
-    public function show(Webboard $webboard) {
-
+    public function show($id,Webboard $webboard) {
+        $reply = DB::table('webboard_replies')->where('reply_to', $webboard->id)->get(); 
+        return view('webboards.show',['webboard' => $webboard,'reply' => $reply]);
     }
-
 
     public function edit(Webboard $createMarket) {
 
     }
-
-
+    
+    public function take() {
+        return view('webboards.list');
+    }
     public function update(Request $request, Webboard $webboard) {
 
     }
 
-    public function destroy(Webboard $webboard) {
+    public function destroy(Webboard $web) {
+        $dir=$web->market_id;
+        $web->delete();   
+        
+        return redirect('/webboard/'.$dir);
+    }
 
+    public function destroyReply(Webboard $web) {
+        $dir=$web->market_id;
+        $web->delete();   
+        
+        return redirect('/webboard/'.$dir);
     }
 }
