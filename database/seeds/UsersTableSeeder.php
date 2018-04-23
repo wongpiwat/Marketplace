@@ -58,7 +58,8 @@ class UsersTableSeeder extends Seeder {
 
 
 
-        factory(App\User::class,10)->create();    
+
+
     }
 }
 
