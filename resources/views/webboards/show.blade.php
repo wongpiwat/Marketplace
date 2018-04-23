@@ -21,10 +21,7 @@
 </div>
 
 <div>
-<form action="/webboard/" method="post">
-  @csrf
-<button  class ="btn btn-danger"> Comment</button>
-</form>
+<button  class ="btn btn-warning" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> Comment</button>
 </div>
 
 <table class="table table-striped">
@@ -59,5 +56,45 @@
     @endforeach
   </tbody>
 </table>
+
+
+ 
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h4 class="modal-title">Create Comment</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+
+
+        <div class="modal-body">
+        
+        <form action="/webboard/{{ $id }}/reply/{{ $webboard->id }}" method="post">
+          <p>Comment </p>
+            <div class="">
+                <textarea name="comment" style='width:100%' rows="8" col="1200"></textarea>
+             </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+      
+            @csrf
+                 <button  class ="btn btn-success"> Submit</button>
+        </form>
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
 @endsection

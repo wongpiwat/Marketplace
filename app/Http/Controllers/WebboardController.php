@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Webboard;
+use App\WebboardReply;
 use Illuminate\Http\Request;
 use DB;
 class WebboardController extends Controller {
@@ -42,11 +43,22 @@ class WebboardController extends Controller {
 
     public function show($id,Webboard $webboard) {
         $reply = DB::table('webboard_replies')->where('reply_to', $webboard->id)->get(); 
-        return view('webboards.show',['webboard' => $webboard,'reply' => $reply]);
+        return view('webboards.show',['webboard' => $webboard,'reply' => $reply,'id' => $id]);
     }
 
     public function edit(Webboard $createMarket) {
 
+    }
+    public function addComment($id,Webboard $webboard,Request $request){
+        $webboard_reply= new  WebboardReply;
+        $reply = DB::table('webboard_replies')->where('reply_to', $webboard->id)->get(); 
+        $webboard_reply->comment =$request->input('comment');
+        // $webboard_reply->comment ='asasa';
+        $webboard_reply->created_by = "1";
+        $webboard_reply->reply_to = $webboard->id;
+        $webboard_reply->save();
+        return redirect('/webboard/'.$id.'/reply/'.$webboard->id);
+        // return view('webboards.show',['webboard' => $webboard,'reply' => $reply,'id' => $id]);
     }
     
     public function take() {

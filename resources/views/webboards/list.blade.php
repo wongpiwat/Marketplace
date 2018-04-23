@@ -1,26 +1,29 @@
-<div>
 
-    <table class="table table-bordered table-striped table-hover category-table" data-toggle="dataTable" data-form="deleteForm">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($categoryList as $category)
-            <tr>
-                <td>{{ $category->category_name }}</td>
-                <td>
-                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-xs">{{ trans('categories.edit') }}</a>
+@extends('layouts.master')
 
-                    {!! Form::model($category, ['method' => 'delete', 'route' => ['categories.destroy', $category->id], 'class' =>'form-inline form-delete']) !!}
-                    {!! Form::hidden('id', $category->id) !!}
-                    {!! Form::submit(trans('categories.delete'), ['class' => 'btn btn-xs btn-danger delete', 'name' => 'delete_modal']) !!}
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
+
+</body>

@@ -29,6 +29,7 @@ Route::get('/webboard','WebboardController@take');
 Route::get('/webboard/{id}','WebboardController@index');
 Route::post('/webboard/{id}','WebboardController@store');
 Route::get('/webboard/{id}/reply/{webboard}','WebboardController@show');
+Route::post('/webboard/{id}/reply/{webboard}','WebboardController@addComment');
 Route::post('/webboard/{id_market}/create','WebboardController@create');
 Route::delete('/webboard/{web}/' , 'WebboardController@destroy');
 
