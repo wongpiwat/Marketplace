@@ -6,22 +6,21 @@
 
 @section('content')
 
+{{ $markets[0]->description }}
+
+
       <div class="container">
         <div class="row">
           <!-- midcontent -->
           <div class="col-md-9" >
             <div id="demo" class="carousel slide" data-ride="carousel" >
-  <!-- <ul class="carousel-indicators" >
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul> -->
+
   <div class="carousel-inner" >
     <div class="carousel-item active">
       <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/fashion-blogger.jpg">
       <div class="carousel-caption slide_description ">
          <div class="slide_description_space">
-           <h3>Los Angeles</h3>
+           <h3>มินs</h3>
            <p>We had such a great time in LA!</p>
 
          </div>
@@ -133,10 +132,40 @@
         <div class="col-md-6">
           <div class="card">
             <div class="card-header" style="background-color:rgb(230,84,61);height:0px;"></div>
-            <div class="card-header">อะไรไม่รุ้ใส่ไปก่อน</div>
+            <div class="card-header">Markets</div>
             <div class="card-body">
-              <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" style="width:100%;height:100%">
 
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
+
+                </div>
+                <div class="col-md-9">
+                  <div class="recent_description">
+                    <a href="#">Blogging For Flowers</a>
+                    <br>
+                   <p> MAY 22,2015</p>
+
+                  </div>
+                </div>
+
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
+
+                </div>
+                <div class="col-md-9">
+                  <div class="recent_description">
+                    <a href="#">Blogging For Flowers</a>
+                    <br>
+                   <p> MAY 22,2015</p>
+
+                  </div>
+                </div>
+
+              </div>
 
 
             </div>
