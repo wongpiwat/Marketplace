@@ -24,10 +24,19 @@
 @endpush
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="card">
   <div class="card-header">Create Market</div>
   <div class="card-body">
-    <form action="/market" method="post" enctype="multipart/form-data">
+    <form action="/markets" method="post" enctype="multipart/form-data">
       @csrf
       <label><b>Market Name<span class="red">*</span></b></label>
       <input type='text' name='name' value='{{ old('name') }}'><br>
@@ -35,10 +44,10 @@
       <input type='text' name='location' value='{{ old('location') }}'><br>
 
       <label><b>Start Time<span class="red">*</span></b></label>
-      <input id="inputStartTime" value="00:00"><br>
+      <input id="inputStartTime" value="{{ old('startTime') }}" name="startTime"><br>
 
       <label><b>Close Time<span class="red">*</span></b></label>
-      <input id="inputEndTime" value="00:00"><br>
+      <input id="inputEndTime" value="{{ old('closeTime') }}" name="closeTime"><br>
 
       <label><b>Day<span class="red">*</span></b></label><br>
       <input name="sunday" type="checkbox" value="sunday"><span class="day-padding">Sunday</span><br>
@@ -61,8 +70,8 @@
       <label><b>Phone<span class="red">*</span></b></label>
       <input type='text' name='phone' value='{{ old('phone') }}'><br>
 
-      <label><b>Youtube Video Link</b></label>
-      <input type='text' name='videoLink' value='{{ old('videoLink') }}'><br>
+      <label><b>Youtube Video Teaser</b></label>
+      <input type='text' name='teaser' value='{{ old('videoLink') }}'><br>
 
       <label><b>Description</b></label>
       <textarea class="form-control" rows="8" name="description"></textarea><br><br>

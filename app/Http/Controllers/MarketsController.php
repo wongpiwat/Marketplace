@@ -16,7 +16,7 @@ class MarketsController extends Controller {
     }
 
     public function store(Request $request) {
-      // $request->validate(['name'=>'required|min:4|max:255|unique:projects,name' , 'description' => 'required|min:10' , 'view_status' => 'required']);
+      $request->validate(['name'=>'required|min:4|max:100|' , 'description' => 'required|min:10' ]);
       if ($request->hasFile('file')) {
         $file = $request->file('file');
         $name = $file->getClientOriginalName();
@@ -25,15 +25,15 @@ class MarketsController extends Controller {
       $market = new Market;
       $market->name = $request->input('name');
       $market->location = $request->input('location');
-      $market->startTime = $request->input('startTime');
-      $market->closeTime = $request->input('closeTime');
+      $market->start_Time = $request->input('startTime');
+      $market->close_Time = $request->input('closeTime');
       $market->day = $request->input('day');
-      $market->organizerName = $request->input('organizerName');
-      $market->contactName = $request->input('contactName');
+      $market->organizer_name = $request->input('organizerName');
+      $market->contact_name = $request->input('contactName');
       $market->email = $request->input('email');
       $market->phone = $request->input('phone');
       $market->description = $request->input('description');
-      $market->videoLink = $request->input('videoLink');
+      $market->teaser = $request->input('teaser');
       // image
       // map
 

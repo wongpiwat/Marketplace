@@ -6,7 +6,7 @@
 
 @section('content')
 
-{{ $markets[0]->description }}
+{{-- $markets[0]->description --}}
 
 
       <div class="container">
