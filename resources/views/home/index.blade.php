@@ -6,8 +6,12 @@
 
 @section('content')
 
+<<<<<<< HEAD
 
 
+=======
+{{-- $markets[0]->description --}}
+>>>>>>> e037eb3b96d3b45e45033524033fc90a97d56562
 
 
       <div class="container">

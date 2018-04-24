@@ -8,15 +8,16 @@ use Illuminate\Http\Request;
 class MarketsController extends Controller {
 
     public function index() {
-        return view('markets.index');
+        $markets = Market::all();
+        return view('markets.index', compact('markets'));
     }
 
     public function create() {
-        return view('Markets.create');
+        return view('markets.create');
     }
 
     public function store(Request $request) {
-      // $request->validate(['name'=>'required|min:4|max:255|unique:projects,name' , 'description' => 'required|min:10' , 'view_status' => 'required']);
+      $request->validate(['name'=>'required|min:4|max:100|' , 'description' => 'required|min:10' ]);
       if ($request->hasFile('file')) {
         $file = $request->file('file');
         $name = $file->getClientOriginalName();
@@ -25,12 +26,25 @@ class MarketsController extends Controller {
       $market = new Market;
       $market->name = $request->input('name');
       $market->location = $request->input('location');
+      $market->start_Time = $request->input('startTime');
+      $market->close_Time = $request->input('closeTime');
+      $market->day = "ds";
+      $market->organizer_name = $request->input('organizer_name');
+      $market->contact_name = $request->input('contact_name');
+      $market->email = $request->input('email');
+      $market->phone = $request->input('phone');
+      $market->description = $request->input('description');
+      $market->teaser = $request->input('teaser');
+      $market->created_by = 1;
+      // image
+      // map
+
       $market->save();
       return redirect('/create/'.$market->id);
     }
 
     public function show(Market $market) {
-        //
+      return view('markets.show',['market'=>$market]);
     }
 
     public function edit(Market $market) {
