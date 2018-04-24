@@ -10,7 +10,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Market Name</th>
+      <th scope="col">Name</th>
+      <th scope="col">Organizer</th>
+      <th scope="col">Created By</th>
     </tr>
   </thead>
 <tbody>
@@ -19,9 +21,14 @@
     <tr>
       <th scope = "row" >{{ $loop->iteration }}</th>
       <td><a href=" {{ url('/markets/' .$market->id) }} "> {{ $market->name }} </a></td>
+      <td> {{ $market->organizer_name }} </td>
 
+      @foreach($users as $user)
+      @if($market->created_by == $user->id)
 
-
+      <td><a href=" {{ url('/users/' .$user->id) }} "> {{ $user->first_name }} {{ $user->last_name }} </a></td>
+      @endif
+      @endforeach
     </tr>
   @endforeach
 

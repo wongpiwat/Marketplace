@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Market;
+use App\User;
 use Illuminate\Http\Request;
 
 class MarketsController extends Controller {
 
     public function index() {
         $markets = Market::all();
-        return view('markets.index', compact('markets'));
+        $users = User::all();
+        return view('markets.index', compact('markets','users'));
     }
 
     public function create() {
