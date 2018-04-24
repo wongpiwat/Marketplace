@@ -8,9 +8,17 @@
     }
     #map {
     height: 400px;
-    margin: 20px 0;
+
     border-radius: 5px;
     border: 1px solid silver;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .day-padding {
+      margin-left:1%
     }
     </style>
 @endpush
@@ -20,43 +28,50 @@
   <div class="card-header">Create Market</div>
   <div class="card-body">
     <form action="/market" method="post" enctype="multipart/form-data">
-      {{ csrf_field() }}
-      <p><b>Market Name<span style="color: red;">*</span> <input type='text' name='name' value='{{ old('name') }}'></b></p>
-      <p><b>Location<span style="color: red;">*</span></b> <input type='text' name='location' value='{{ old('location') }}'></p>
+      @csrf
+      <label><b>Market Name<span class="red">*</span></b></label>
+      <input type='text' name='name' value='{{ old('name') }}'><br>
+      <label><b>Location<span class="red">*</span></b></label>
+      <input type='text' name='location' value='{{ old('location') }}'><br>
 
-      <p><b>Start Time<span style="color: red;">*</span></b>
-      <input id="inputStartTime" value="00:00">
-      <button type="button" class="btn btn-default btn-sm" id="buttonStartTime">
-      <span class="glyphicon glyphicon-time"></span> Time</button></p>
+      <label><b>Start Time<span class="red">*</span></b></label>
+      <input id="inputStartTime" value="00:00"><br>
 
-      <p><b>Close Time<span style="color: red;">*</span></b>
-      <input id="inputEndTime" value="00:00">
-      <button type="button" class="btn btn-default btn-sm" id="buttonEndTime">
-      <span class="glyphicon glyphicon-time"></span> Time</button></p>
+      <label><b>Close Time<span class="red">*</span></b></label>
+      <input id="inputEndTime" value="00:00"><br>
 
-      <p><b>Day<span style="color: red;">*</span></b></p>
-      <input name="sunday" type="checkbox" value="sunday"><span style="margin-left:1%">Sunday</span><br>
-      <input name="monday" type="checkbox" value="monday"><span style="margin-left:1%">Monday</span><br>
-      <input name="tuesday" type="checkbox" value="tuesday"><span style="margin-left:1%">Tuesday</span><br>
-      <input name="wednesday" type="checkbox" value="wednesday"><span style="margin-left:1%">Wednesday</span><br>
-      <input name="thursday" type="checkbox" value="thursday"><span style="margin-left:1%">Thursday</span><br>
-      <input name="friday" type="checkbox" value="friday"><span style="margin-left:1%">Friday</span><br>
-      <input name="saturday" type="checkbox" value="saturday"><span style="margin-left:1%">Saturday</span><br><br>
+      <label><b>Day<span class="red">*</span></b></label><br>
+      <input name="sunday" type="checkbox" value="sunday"><span class="day-padding">Sunday</span><br>
+      <input name="monday" type="checkbox" value="monday"><span class="day-padding">Monday</span><br>
+      <input name="tuesday" type="checkbox" value="tuesday"><span class="day-padding">Tuesday</span><br>
+      <input name="wednesday" type="checkbox" value="wednesday"><span class="day-padding">Wednesday</span><br>
+      <input name="thursday" type="checkbox" value="thursday"><span class="day-padding">Thursday</span><br>
+      <input name="friday" type="checkbox" value="friday"><span class="day-padding">Friday</span><br>
+      <input name="saturday" type="checkbox" value="saturday"><span class="day-padding">Saturday</span><br><br>
 
-      <p><b>Organizer Name<span style="color: red;">*</span></b> <input type='text' name='organizer-name' value='{{ old('organizer-name') }}'></p>
-      <p><b>Contact Name<span style="color: red;">*</span></b> <input type='text' name='contact-name' value='{{ old('contact-name') }}'></p>
-      <p><b>Email<span style="color: red;">*</span></b> <input type='text' name='email' value='{{ old('email') }}'></p>
-      <p><b>Phone<span style="color: red;">*</span></b> <input type='text' name='phone' value='{{ old('phone') }}'></p>
+      <label><b>Organizer Name<span class="red">*</span></b></label>
+      <input type='text' name='organizer-name' value='{{ old('organizer-name') }}'><br>
 
-      <p><b>Description</b></p>
-      <textarea class="form-control" rows="8"></textarea><br><br>
+      <label><b>Contact Name<span class="red">*</span></b></label>
+      <input type='text' name='contact-name' value='{{ old('contact-name') }}'><br>
 
-      <p><b>Youtube Video Link</b> <input v-model.trim="item"></p>
-      <p><b>Market Images<span style="color: red;">*</span></b>
-      <input type="file" name="file">
-      <!-- <p><b>Market Layout<span style="color: red;">*</span></b></p> -->
+      <label><b>Email<span class="red">*</span></b></label>
+      <input type='text' name='email' value='{{ old('email') }}'><br>
 
-      <p><b>Place Marker On Map<span style="color: red;">*</span></b></p>
+      <label><b>Phone<span class="red">*</span></b></label>
+      <input type='text' name='phone' value='{{ old('phone') }}'><br>
+
+      <label><b>Youtube Video Link</b></label>
+      <input type='text' name='videoLink' value='{{ old('videoLink') }}'><br>
+
+      <label><b>Description</b></label>
+      <textarea class="form-control" rows="8" name="description"></textarea><br><br>
+
+      <label><b>Market Images<span class="red">*</span></b></label>
+      <input type="file" name="file"><br>
+      <!-- <label><b>Market Layout<span class="red">*</span></b></label> -->
+
+      <label><b>Place Marker On Map<span class="red">*</span></b></label>
       <div id="map"></div>
       <button class="btn btn-primary" type="submit">Next</button>
     </form>
@@ -76,15 +91,6 @@
   var inputEndTime = $('#inputEndTime');
   inputEndTime.clockpicker({autoclose: true});
 
-  $('#buttonStartTime').click(function(e){
-      e.stopPropagation();
-      inputStartTime.clockpicker('show').clockpicker('toggleView', 'hours');
-  });
-
-  $('#buttonEndTime').click(function(e){
-      e.stopPropagation();
-      inputEndTime.clockpicker('show').clockpicker('toggleView', 'hours');
-  });
 </script>
 <script>
     var map;

@@ -25,6 +25,18 @@ class MarketsController extends Controller {
       $market = new Market;
       $market->name = $request->input('name');
       $market->location = $request->input('location');
+      $market->startTime = $request->input('startTime');
+      $market->closeTime = $request->input('closeTime');
+      $market->day = $request->input('day');
+      $market->organizerName = $request->input('organizerName');
+      $market->contactName = $request->input('contactName');
+      $market->email = $request->input('email');
+      $market->phone = $request->input('phone');
+      $market->description = $request->input('description');
+      $market->videoLink = $request->input('videoLink');
+      // image
+      // map
+
       $market->save();
       return redirect('/create/'.$market->id);
     }
