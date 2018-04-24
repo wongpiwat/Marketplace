@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 class MarketsController extends Controller {
 
     public function index() {
-        return view('markets.index');
+        $markets = Market::all();
+        return view('markets.index', compact('markets'));
     }
 
     public function create() {
-        return view('Markets.create');
+        return view('markets.create');
     }
 
     public function store(Request $request) {
@@ -27,13 +28,14 @@ class MarketsController extends Controller {
       $market->location = $request->input('location');
       $market->start_Time = $request->input('startTime');
       $market->close_Time = $request->input('closeTime');
-      $market->day = $request->input('day');
-      $market->organizer_name = $request->input('organizerName');
-      $market->contact_name = $request->input('contactName');
+      $market->day = "ds";
+      $market->organizer_name = $request->input('organizer_name');
+      $market->contact_name = $request->input('contact_name');
       $market->email = $request->input('email');
       $market->phone = $request->input('phone');
       $market->description = $request->input('description');
       $market->teaser = $request->input('teaser');
+      $market->created_by = 1;
       // image
       // map
 
@@ -42,7 +44,7 @@ class MarketsController extends Controller {
     }
 
     public function show(Market $market) {
-        //
+      return view('markets.show',['market'=>$market]);
     }
 
     public function edit(Market $market) {

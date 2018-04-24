@@ -59,10 +59,10 @@
       <input name="saturday" type="checkbox" value="saturday"><span class="day-padding">Saturday</span><br><br>
 
       <label><b>Organizer Name<span class="red">*</span></b></label>
-      <input type='text' name='organizer-name' value='{{ old('organizer-name') }}'><br>
+      <input type='text' name='organizer_name' value='{{ old('organizer_name') }}'><br>
 
       <label><b>Contact Name<span class="red">*</span></b></label>
-      <input type='text' name='contact-name' value='{{ old('contact-name') }}'><br>
+      <input type='text' name='contact_name' value='{{ old('contact_name') }}'><br>
 
       <label><b>Email<span class="red">*</span></b></label>
       <input type='text' name='email' value='{{ old('email') }}'><br>
