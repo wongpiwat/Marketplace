@@ -12,6 +12,7 @@ class HomepageController extends Controller
       public function index()
       {
           $market = Market::all();
+          
 
 
           return view('home.index',['markets'=>$market]);

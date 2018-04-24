@@ -6,7 +6,8 @@
 
 @section('content')
 
-{{ $markets[0]->description }}
+
+
 
 
       <div class="container">
@@ -114,7 +115,7 @@
                  </div>
                  <div class="col-md-9">
                    <div class="recent_description">
-                     <a href="#">Blogging For Flowers</a>
+                     <a href="#">Blogging For Flower</a>
                      <br>
                     <p> MAY 22,2015</p>
 
@@ -134,6 +135,15 @@
             <div class="card-header" style="background-color:rgb(230,84,61);height:0px;"></div>
             <div class="card-header">Markets</div>
             <div class="card-body">
+              <?php
+              $lenth = count($markets) ;
+              if($lenth>5){
+                $lenth = 5;
+              }
+
+
+              ?>
+              @for($i = 0; $i<$lenth;$i++)
 
               <div class="row">
                 <div class="col-md-3">
@@ -142,33 +152,27 @@
                 </div>
                 <div class="col-md-9">
                   <div class="recent_description">
-                    <a href="#">Blogging For Flowers</a>
+                    <a href="#">{{$markets[$i]->name}}</a>
                     <br>
-                   <p> MAY 22,2015</p>
+                   <p> {{$markets[$i]->location}}</p>
 
                   </div>
                 </div>
 
               </div>
+              @if($i!=$lenth-1)
               <hr>
-              <div class="row">
-                <div class="col-md-3">
-                  <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
+              @endif
+              @endfor
+            </div>
 
-                </div>
-                <div class="col-md-9">
-                  <div class="recent_description">
-                    <a href="#">Blogging For Flowers</a>
-                    <br>
-                   <p> MAY 22,2015</p>
-
-                  </div>
-                </div>
-
-              </div>
-
+          </div>
+          <div class="card" style="background-color:rgb(247,247,247);" >
+            <div class="card-header" style="height:43px;">
+                <center><a href="#" style="color:rgb(230,84,61);" class="">More</a></center>
 
             </div>
+
 
           </div>
 
@@ -191,6 +195,14 @@
             <div class="card " style="width:110%;margin-left:-10px;">
               <div class="card-header color-card"><h6>RECENT POST</h6></div>
               <div class="card-body">
+                <?php
+                  $num_recentpost = count($markets);
+                  if($num_recentpost>4){
+                    $num_recentpost = 4;
+                  }
+
+                ?>
+                @for($i=$num_recentpost;$i>0;$i--)
                 <div class="row">
                   <div class="col-md-3">
                     <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/fashion-blogger.jpg" alt="" class="image_recent" >
@@ -198,47 +210,17 @@
                   </div>
                   <div class="col-md-9">
                     <div class="recent_description">
-                      <a href="#">Blogging For Fashion</a>
+                      <a href="#">{{$markets[$i]->name}}</a>
                       <br>
-                     <p> DEC 2,2015</p>
+                     <p>{{$markets[$i]->location}}</p>
 
                     </div>
                   </div>
-
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-md-3">
-                    <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/12/012.jpg" alt="" class="image_recent" >
-
                   </div>
-                  <div class="col-md-9">
-                    <div class="recent_description">
-                      <a href="#">Blogging For Fuji</a>
-                      <br>
-                     <p> NOV 18,2015</p>
-
-                    </div>
-                  </div>
-
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-md-3">
-                    <img src="https://www.elegantthemes.com/preview/Extra/wp-content/uploads/2015/11/flowers.jpg" alt="" class="image_recent" >
-
-                  </div>
-                  <div class="col-md-9">
-                    <div class="recent_description">
-                      <a href="#">Blogging For Flowers</a>
-                      <br>
-                     <p> MAY 22,2015</p>
-
-                    </div>
-                  </div>
-
-                </div>
-
+                  @if($i!=0)
+                  <hr>
+                  @endif
+                @endfor
               </div>
             </div>
             <br>
