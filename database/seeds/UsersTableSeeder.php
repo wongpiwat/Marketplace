@@ -8,7 +8,7 @@ class UsersTableSeeder extends Seeder {
 
     public function run() {
 
-        // $users=factory(App\User::class,5)->make();
+        $users=factory(App\User::class,5)->make();
 
         $admin = new App\User;
         $admin->username = 'admin';

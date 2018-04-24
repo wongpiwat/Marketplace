@@ -44,6 +44,26 @@
       </div>
     </div>
 
+    @if (\Request::is('markets') or \Request::is('reserves') or \Request::is('users') or \Request::is('logs'))
+    <div class="container }}">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('markets') ? 'active' : '' }}" href="/markets">All Markets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('reserves') ? 'active' : '' }}" href="/reserves">All Reserves</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('users') ? 'active' : '' }}" href="/users">All Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('logs') ? 'active' : '' }}" href="/logs">All Logs</a>
+        </li>
+      </ul>
+    </div>
+    @endif
+
+
   <div class="container">
       @yield('content')
   </div>

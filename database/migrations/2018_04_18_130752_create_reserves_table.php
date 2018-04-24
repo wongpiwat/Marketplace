@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReserveAreasTable extends Migration {
+class CreateReservesTable extends Migration {
 
     public function up()
     {
-        Schema::create('reserve_areas', function (Blueprint $table) {
+        Schema::create('reserves', function (Blueprint $table) {
             $table->increments('id');
             $table->string('location');
             $table->unsignedInteger('reserved_by');
@@ -20,11 +20,11 @@ class CreateReserveAreasTable extends Migration {
     }
     public function down() {
         Schema::enableForeignKeyConstraints();
-        Schema::table('reserve_areas', function (Blueprint $table) {
+        Schema::table('reserves', function (Blueprint $table) {
             $table->dropForeign(['reserved_by']);
             $table->dropForeign(['market_id']);
         });
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('reserve_areas');
+        Schema::dropIfExists('reserves');
     }
 }

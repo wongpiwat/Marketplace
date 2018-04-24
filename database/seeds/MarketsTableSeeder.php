@@ -2,16 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
-<<<<<<< HEAD
-class MarketsTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+
+class MarketsTableSeeder extends Seeder {
+
+    public function run() {
         // $user_id1 = App\User::where('username', 'admin')->value('id');
         // $marker = new App\Market;
         // $marker->name ="KU Fest";
@@ -93,13 +87,6 @@ class MarketsTableSeeder extends Seeder
         // $market5->created_by=$user_id1;
         // $market5->save();
         factory(App\Market::class,10)->create();
-=======
-class MarketsTableSeeder extends Seeder {
 
-    public function run() {
->>>>>>> e037eb3b96d3b45e45033524033fc90a97d56562
-
-        factory(App\Market::class,10)->create();
-        
     }
 }

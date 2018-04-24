@@ -18,5 +18,8 @@ Route::get('/register', function() {
 
 
 Route::resource('/markets', 'MarketsController');
+Route::resource('/reserves', 'ReservesController');
+Route::resource('/users', 'UsersController');
+Route::resource('/logs', 'LogsController');
 
 Route::get('/webboard/{id}','WebboardController@index');
