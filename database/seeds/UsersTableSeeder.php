@@ -11,7 +11,6 @@ class UsersTableSeeder extends Seeder {
         $users=factory(App\User::class,5)->make();
 
         $admin = new App\User;
-        $admin->username = 'admin';
         $admin->first_name ="first";
         $admin->last_name ="last";
         $admin->password = bcrypt('adminpassword');
@@ -26,7 +25,6 @@ class UsersTableSeeder extends Seeder {
         $admin->save();
 
         $user1 = new App\User;
-        $user1->username = 'Sunut';
         $user1->first_name ="supanut";
         $user1->last_name ="thiensuwan";
         $user1->password = bcrypt('nutpassword');
@@ -42,7 +40,6 @@ class UsersTableSeeder extends Seeder {
 
 
         $user2 = new App\User;
-        $user2->username = 'Lek';
         $user2->first_name ="greasy";
         $user2->last_name ="cafeNu";
         $user2->password = bcrypt('lekpassword');
