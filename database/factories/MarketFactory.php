@@ -17,5 +17,6 @@ $factory->define(App\Market::class, function (Faker $faker) {
         'contact_name'=>$faker->name,
         'email'=>$faker->email,
         'phone'=>$faker->phoneNumber,
+        'view'=>$faker->randomDigitNotNull,
     ];
 });

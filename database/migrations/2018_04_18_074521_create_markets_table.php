@@ -20,6 +20,7 @@ class CreateMarketsTable extends Migration {
             $table->string('phone');
             $table->text('description')->nullable();
             $table->string('teaser')->nullable();
+            $table->unsignedInteger('view');
             $table->unsignedInteger('created_by');
             $table->timestamps();
             $table->foreign('created_by')->references('id')->on('users');
