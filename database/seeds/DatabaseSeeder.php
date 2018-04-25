@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder {
         $this->call(MarketsTableSeeder::class);
         $this->call(WebboardsTableSeeder::class);
         $this->call(WebboardRepliesSeeder::class);
-
+        $this->call(LogsTableSeeder::class);
+        $this->call(ReservesTableSeeder::class);
     }
 }

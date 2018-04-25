@@ -9,9 +9,9 @@ All Users
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Username</th>
       <th scope="col">Name</th>
-      <th scope="col">Access Level</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Type</th>
       <th scope="col">Enabled</th>
     </tr>
   </thead>
@@ -20,10 +20,10 @@ All Users
   @foreach($users as $user)
     <tr>
       <th scope = "row" >{{ $loop->iteration }}</th>
-      <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->username }}</a></td>
-      <td>{{ $user->name }}</td>
-      <td>{{ $user->access_level }}</td>
-      <td>{!! $user->is_enabled ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
+      <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
+      <td>{{ $user->email }}</td>
+      <td>{{ $user->type }}</td>
+      <td>{!! $user->is_enabled ? '✔️' : '✖️' !!}</td>
     </tr>
   @endforeach
 
