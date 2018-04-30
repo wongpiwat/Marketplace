@@ -25,4 +25,12 @@ class WebboardReply extends Model
     protected $fillable = [
         'comment', 'created_by', 'reply_by',
     ];
+
+    public function users() {
+      return $this->belongsToMany('App\User');
+    }
+
+    public function webboards() {
+      return $this->belongsToMany('App\Webboard');
+    }
 }

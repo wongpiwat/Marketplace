@@ -1,5 +1,12 @@
 @extends('layouts.master')
 
+@push('style')
+<style>
+.container {
+  min-height: 0%;
+}
+</style>
+@endpush
 @section('content')
 <?php
   $firstnameCreated = DB::table('users')->where('id', $webboard->created_by)->value('first_name');
@@ -12,41 +19,65 @@
 ?>
 @endforeach
 <p><a href="/webboards">Webboards</a><span> > </span> <span>{{ $webboard->topic }}</span></p>
-<div class="container card">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<div class="card">
   <div class="card-header">
   <h2>{{ $webboard->topic }}</h2>
   </div>
   <div class="media border p-3">
-    <img src="/images/user.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px; border-radius: 25px; ">
+    <?php
+    $imgUserTopic = DB::table('users')->where('id', $webboard->created_by)->value('image');
+    // dd($imgUserTopic);
+    ?>
+     @if (   $imgUserTopic   == null ||  $imgUserTopic ==='default' )
+     <img src=" {{ asset('images/user.png') }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:60px; border-radius: 25px; ">
+     @else
+     <img src=" {{ asset('storage/users/'.$webboard->created_by.'/profile/'.$imgUserTopic ) }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px; border-radius: 25px;">
+     @endif
     <div class="media-body">
       <h4>{{ $firstnameCreated }} {{ $lastnameCreated }} <small style="font-size:15px;"><i>Posted on {{ $webboard->created_at }}</i></small></h4>
       <p> {{ $webboard->details }} </p>
         <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
     <div>
-      <form  class='delete' action="/webboards/{{ $webboard->id }}" method="post">
+      @if(\Auth::user()->id == $webboard->created_by)
+      <form action="/webboards/{{ $webboard->id }}" method="post" class="has-confirm" data-message="Delete?">
       @csrf
       @method('DELETE')
       <input type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">
       </form>
+      @endif
     </div>
 
       @foreach($replys as $p)
       <?php
       $replyFirstName = DB::table('users')->where('id', $p->created_by)->value('first_name');
       $replyLastName = DB::table('users')->where('id', $p->created_by)->value('last_name');
+      $imgUser = DB::table('users')->where('id', $p->created_by)->value('image');
       ?>
       <div class="media p-3">
-        <img src="{{ asset('images/user.png') }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px; border-radius: 25px;">
+        @if (   $imgUser   == null ||  $imgUser ==='default')
+        <img src=" {{ asset('images/user.png') }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px; border-radius: 25px;">
+        @else
+        <img src=" {{ asset('storage/users/'.$p->created_by.'/profile/'.$imgUser ) }}" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px; border-radius: 25px;">
+        @endif
         <div class="media-body">
           <h4>{{ $replyFirstName }} {{ $replyLastName }} <small style="font-size:15px;"><i>Posted on {{ $p->created_at }}</i></small></h4>
           <p>
           {{ $p->comment }}
          </p>
          <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
-         <form class="delete" action="/webboards/{{ $webboard->id }}/{{ $p->id }}" method="post">
+         <form action="/webboards/{{ $webboard->id }}/{{ $p->id }}" method="post" class="has-confirm" data-message="Delete?">
            @csrf
            @method('DELETE')
-          <input type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">
+          <button type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">Delete</button>
         </form>
         </div>
       </div>
@@ -122,11 +153,6 @@
 </div>
 </div>
 
-
-
-
-
-<script src="{{asset('js/app.js')}}"></script>
 <script>
 $(function() {
     $('#EditmyModal').on("show.bs.modal", function (e) {
@@ -184,3 +210,15 @@ $(function() {
       </div>
     </div>
   </div>
+
+
+  @push('script')
+  <script>
+  $("form.has-confirm").submit(function (e) {
+    var $message = $(this).data('message');
+    if(!confirm($message)){
+      e.preventDefault();
+    }
+  });
+  </script>
+  @endpush

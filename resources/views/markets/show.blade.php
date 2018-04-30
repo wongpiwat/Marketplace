@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<a href="/markets">Markets</a><span> > </span><a>{{ $market->name }}</a><br><br>
+<p><a href="/markets">Markets</a><span> > </span> <span>{{ $market->name }}</span></p>
 <div class="panel panel-default card">
     <div class="panel-­heading card-header">
         <h1>{{ $market->name }}</h1>
@@ -19,15 +19,164 @@
       <li class="list-group-item">Youtube Video Teaser: {{ $market->teaser }}</li>
 
     </ul>
-    <div class="panel-footer">
-      <a class="btn btn-warning" href="{{ url('/markets/' . $market->id . '/edit') }}">Edit</a>
+    <div class="card-footer">
+      <a class="btn btn-warning" href="{{ url('/markets/' . $market->id . '/edit') }}" style="float: left;">Edit</a>
+      <a class="btn btn-primary" href="{{ url('/markets/page/' . $market->id . '') }}" style="float: right;">Market</a>
+
+      <center>
       <form action="/markets/{{$market->id}}" method="post" class="has-confirm" data-message="Delete market?">
         @csrf
         @method('DELETE')
         <button type='submit' class="btn btn-danger">Delete</button>
       </form>
+      </center>
     </div>
 </div>
+
+<br>
+@if($reservations != null)
+<div class="card">
+  <div class="card-header">
+    <h2>Reservations</h2>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Zone</th>
+          <th scope="col">Number</th>
+          <th scope="col">Reserved By</th>
+          <th scope="col">Paid</th>
+        </tr>
+      </thead>
+    <tbody>
+      @foreach($market->zones as $zone)
+        @foreach($zone->reservations as $reservation)
+          @if($reservation->reserved_by !== null)
+            @if(\Auth::user()->id == $reservation->reserved_by)
+              <tr>
+                <th scope = "row" >{{ $loop->iteration }}</th>
+                <td>{{ $zone->name }}</td>
+                <td><a href="{{ url('/reservations/'.$reservation->id )}}">{{ $reservation->number }}</a></td>
+
+                @php
+                  $is_reserved = false;
+                @endphp
+                @foreach($users as $user)
+                  @if($reservation->reserved_by == $user->id)
+                    <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
+                    @php
+                      $is_reserved = true;
+                    @endphp
+                  @endif
+                @endforeach
+                @if($is_reserved == false)
+                  <td>-</td>
+                @endif
+
+                <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
+                @if($reservation->is_paid == true)
+                  <td>
+                    <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
+                      @csrf
+                      @method('PUT')
+                      <button class="btn btn-danger" type="submit" name="button">Cancel</button>
+                    </form>
+                  </td>
+                  <td>
+                    <a href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn btn-info">Check In</a>
+                  <td>
+                @else
+                <td>
+                  <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
+                    @csrf
+                    @method('PUT')
+                    <button class="btn btn-primary" type="submit" name="button">Pay</button>
+                  </form>
+                </td>
+                <td>
+                  <button disabled href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn" style="background-color:gray; color:white">Check In</button>
+                <td>
+                @endif
+              </tr>
+            @else
+              <tr>
+                <th scope = "row" >{{ $loop->iteration }}</th>
+                <td>{{ $zone->name }}</td>
+                <td><a href="{{ url('/reservations/'.$reservation->id )}}">{{ $reservation->number }}</a></td>
+
+                @php
+                  $is_reserved = false;
+                @endphp
+                @foreach($users as $user)
+                  @if($reservation->reserved_by == $user->id)
+                    <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
+                    @php
+                      $is_reserved = true;
+                    @endphp
+                  @endif
+                @endforeach
+                @if($is_reserved == false)
+                  <td>-</td>
+                @endif
+
+                <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
+                @if($reservation->is_paid == true)
+                  <td>
+                    <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
+                      @csrf
+                      @method('PUT')
+                      <button class="btn btn-danger" type="submit" name="button">Cancel</button>
+                    </form>
+                  </td>
+                @else
+                <td>
+                  <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
+                    @csrf
+                    @method('PUT')
+                    <button class="btn btn-primary" type="submit" name="button">Pay</button>
+                  </form>
+                </td>
+                @endif
+              </tr>
+            @endif
+          @else
+            @if(\Auth::user()->id == $market->created_by || \Auth::user()->type == 'administrator')
+              <tr>
+                <th scope = "row" >{{ $loop->iteration }}</th>
+                <td>{{ $zone->name }}</td>
+                <td><a href="{{ url('/reservations/'.$reservation->id ) }}">{{ $reservation->number }}</a></td>
+
+
+                @php
+                  $is_reserved = false;
+                @endphp
+                @foreach($users as $user)
+                  @if($reservation->reserved_by == $user->id)
+                    <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
+                    @php
+                      $is_reserved = true;
+                    @endphp
+                  @endif
+                @endforeach
+                @if($is_reserved == false)
+                  <td>-</td>
+                @endif
+
+                <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
+
+              </tr>
+            @endif
+          @endif
+        @endforeach
+      @endforeach
+    </tbody>
+    </table>
+    <div class="card-footer">
+      <a class="btn btn-info"  href="/markets/reservations/form/{{$market->id}}">Print</a>
+    </div>
+</div>
+    @endif
 @endsection
 
 @push('script')

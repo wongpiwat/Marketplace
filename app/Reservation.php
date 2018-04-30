@@ -23,6 +23,15 @@ class Reservation extends Model
      * @var array
      */
     protected $fillable = [
-        'market_id', 'zone', 'number', 'reserved_by', 'is_paid',
+        'zone_id', 'number', 'reserved_by', 'is_paid',
     ];
+
+    public function zones() {
+      return $this->belongsToMany('App\Zone', 'zone_id');
+    }
+
+    public function checkIns()
+    {
+        return $this->hasMany('App\CheckIn');
+    }
 }

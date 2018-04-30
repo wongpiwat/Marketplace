@@ -3,12 +3,8 @@
 @push('style')
 <link rel="stylesheet" href="/css/jquery-clockpicker.min.css">
     <style>
-    p , span {
-      font-size: 18px;
-    }
     #map {
     height: 400px;
-
     border-radius: 5px;
     border: 1px solid silver;
     }
@@ -19,6 +15,10 @@
 
     .day-padding {
       margin-left:1%
+    }
+
+    label, input {
+      font-size: 20px;
     }
     </style>
 @endpush
@@ -33,58 +33,93 @@
         </ul>
     </div>
 @endif
+<p><a href="/">Marketplace</a><span> > </span><span>Create Market</span></p>
 <div class="card">
-  <div class="card-header">Create Market</div>
+  <div class="card-header">
+    <h1>Create Market</h1>
+  </div>
   <div class="card-body">
     <form action="/markets" method="post" enctype="multipart/form-data">
       @csrf
-      <label><b>Market Name<span class="red">*</span></b></label>
-      <input type='text' name='name' value='{{ old('name') }}'><br>
-      <label><b>Location<span class="red">*</span></b></label>
-      <input type='text' name='location' value='{{ old('location') }}'><br>
+      <h3><u>Information</u></h3>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="col-md-5 text-md-right">Market Name<span class="red">*</span></label>
+          <input type='text' name='name' value='{{ old('name') }}'><br>
 
-      <label><b>Start Time<span class="red">*</span></b></label>
-      <input id="inputStartTime" value="{{ old('startTime') }}" name="startTime"><br>
+          <label class="col-md-5 text-md-right">Location<span class="red">*</span></label>
+          <textarea type='text' name='location' rows='3'>{{ old('location') }}</textarea><br>
 
-      <label><b>Close Time<span class="red">*</span></b></label>
-      <input id="inputEndTime" value="{{ old('closeTime') }}" name="closeTime"><br>
+          <label class="col-md-5 text-md-right">Start Day<span class="red">*</span></label>
+          <input type="date" name="start_day" value='{{ old('start_day') }}'><br>
 
-      <label><b>Day<span class="red">*</span></b></label><br>
-      <input name="sunday" type="checkbox" value="sunday"><span class="day-padding">Sunday</span><br>
-      <input name="monday" type="checkbox" value="monday"><span class="day-padding">Monday</span><br>
-      <input name="tuesday" type="checkbox" value="tuesday"><span class="day-padding">Tuesday</span><br>
-      <input name="wednesday" type="checkbox" value="wednesday"><span class="day-padding">Wednesday</span><br>
-      <input name="thursday" type="checkbox" value="thursday"><span class="day-padding">Thursday</span><br>
-      <input name="friday" type="checkbox" value="friday"><span class="day-padding">Friday</span><br>
-      <input name="saturday" type="checkbox" value="saturday"><span class="day-padding">Saturday</span><br><br>
+          <label class="col-md-5 text-md-right">Close Day<span class="red">*</span></label>
+          <input type="date" name="close_day" value='{{ old('close_day') }}'><br>
 
-      <label><b>Organizer Name<span class="red">*</span></b></label>
-      <input type='text' name='organizer_name' value='{{ old('organizer_name') }}'><br>
+          <label class="col-md-5 text-md-right">Start Time<span class="red">*</span></label>
+          <input id="inputStartTime" value="{{ old('start_time') }}" name="start_time" placeholder="00:00"><br>
 
-      <label><b>Contact Name<span class="red">*</span></b></label>
-      <input type='text' name='contact_name' value='{{ old('contact_name') }}'><br>
+          <label class="col-md-5 text-md-right">Close Time<span class="red">*</span></label>
+          <input id="inputEndTime" value="{{ old('close_time') }}" name="close_time" placeholder="00:00"><br>
+        </div>
 
-      <label><b>Email<span class="red">*</span></b></label>
-      <input type='text' name='email' value='{{ old('email') }}'><br>
+        <div class="col-md-6">
+          <label class="col-md-5 text-md-right">Organizer Name<span class="red">*</span></label>
+          <input type='text' name='organizer_name' value='{{ old('organizer_name') }}'><br>
 
-      <label><b>Phone<span class="red">*</span></b></label>
-      <input type='text' name='phone' value='{{ old('phone') }}'><br>
+          <label class="col-md-5 text-md-right">Contact Name<span class="red">*</span></label>
+          <input type='text' name='contact_name' value='{{ old('contact_name') }}'><br>
 
-      <label><b>Youtube Video Teaser</b></label>
-      <input type='text' name='teaser' value='{{ old('videoLink') }}'><br>
+          <label class="col-md-5 text-md-right">Email<span class="red">*</span></label>
+          <input type='text' name='email' value='{{ old('email') }}'><br>
 
-      <label><b>Description</b></label>
-      <textarea class="form-control" rows="8" name="description"></textarea><br><br>
+          <label class="col-md-5 text-md-right">Phone<span class="red">*</span></label>
+          <input type='text' name='phone' value='{{ old('phone') }}'><br>
 
-      <label><b>Market Images<span class="red">*</span></b></label>
-      <input type="file" name="file"><br>
-      <!-- <label><b>Market Layout<span class="red">*</span></b></label> -->
+          <label class="col-md-5 text-md-right">Youtube Video Teaser</label>
+          <input type='text' name='teaser' value='{{ old('teaser') }}'><br>
+        </div>
+      </div><br>
 
-      <label><b>Place Marker On Map<span class="red">*</span></b></label>
-      <div id="map"></div>
-      <button class="btn btn-primary" type="submit">Next</button>
+      <div class="" style="display: flex;flex-direction:column;">
+        <label style="margin-left:10%">Description<span class="red">*</span></label>
+        <center><textarea class="form-control" rows="8" name="description" style="width:80%">{{ old('description') }}</textarea></center>
+      </div><br>
+
+      <div class="" style="display: flex;flex-direction:column;">
+        <label style="margin-left:10%">Place Marker On Map<span class="red">*</span></label>
+        <center><div id="map" style="width:80%"></div></center>
+      </div><br>
+
+      <input hidden type="text" id="lat_value" name="latitude">
+      <input hidden type="text" id="lng_value" name="longitude"><br><hr>
+
+      <h3><u>Upload Images</u></h3>
+      <label class="col-md-3 text-md-right">Market Layout<span class="red">*</span></label>
+      <input type="file" name="market_layout"><br>
+
+      <label class="col-md-3 text-md-right">Market Screenshot<span class="red">*</span></label>
+      <input type="file" name="market_screenshot[]" multiple><br><hr>
+
+      <h3 style="display: inline"><u>Zone</u></h3>
+      <div id='plusZone' title="Add Zone" class="btn btn-primary" style="float: right;">+</div>
+
+      <br><br>
+      <div id='zones'>
+        <div class="" style="display: flex;">
+          <span>Zone Name : </span><input required type="text" name="zoneName[]" value="">
+          <span style="margin-left:5%">Number of Zone : </span><input required style="width:10%" type="number" name="numberOfZone[]" value="">
+          <span style="margin-left:5%">Price of Zone : </span><input required style="width:10%"  type="number" name="priceOfZone[]" value="">
+        </div><br>
+      </div><br>
+
+      <br>
+
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" type="submit">Create</button>
+    </div>
     </form>
-  </div>
 </div>
 @endsection
 
@@ -126,7 +161,7 @@
         position: location,
         map: map
         });
-        // sendLatLng(lat,lng);
+        sendLatLng(lat,lng);
         // console.log(lat+" "+lng);
         markers.push(marker);
     }
@@ -145,5 +180,16 @@
         clearMarkers();
         markers = [];
     }
+
+    function sendLatLng(lat,lng) {
+      console.log(lat+" "+lng);
+      document.getElementById("lat_value").value = lat;
+      document.getElementById("lng_value").value = lng;
+    }
+</script>
+<script type="text/javascript">
+  $('#plusZone').click(function(){
+    $('#zones').append('<div class="" style="display: flex;"><span>Zone Name : </span><input required type="text" name="zoneName[]" value=""><span style="margin-left:5%">Number of Zone : </span><input required style="width:10%" type="number" name="numberOfZone[]" value=""><span style="margin-left:5%">Price of Zone : </span><input required style="width:10%"  type="number" name="priceOfZone[]" value=""></div><br>');
+  });
 </script>
 @endpush

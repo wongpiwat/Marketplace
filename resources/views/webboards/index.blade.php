@@ -2,12 +2,75 @@
 
 @section('content-more')
 <div>
-  <h1>Webboards<h1>
+  <h1 style="color:#2084BD;">    <img src=" {{ asset('images/webboard2.gif') }}" class="mr-3 mt-3 rounded-circle" alt="Jane Doe"  style="width:120px; height:90; border-radius: 10px; ">
+ Webboards<h1>
+
 </div>
-<hr>
+<div class="row">
+  <div class="col-md-10"></div>
+    <div class="col-md-2">
+      <a class ="btn btn-" data-toggle="modal" data-target="#myModal" style="float:right;background-color:#2084BD;color:#EDF2F9 "> Create</a>
+    </div>
+</div>
+<hr style="height:4px;background-color:#2084BD;">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div>
-  <button  class ="btn btn-primary" data-toggle="modal" data-target="#myModal"> Create</button>
+  <form  action="/search/webboard" class="form-inline" style="float:right" method="get">
+  <input class="form-control " name="str" type="text" placeholder="Search...">
+  </form>
 </div>
+
+
+
+<ul class="nav nav-tabs">
+ @if(  $pointType == "all")
+  <li class="nav-item">
+    <a class="nav-link active"   href="{{ url('/webboards/' ) }}">All</a>
+  </li>
+  @else
+  <li class="nav-item">
+    <a class="nav-link "   href="{{ url('/webboards/' ) }}">All</a>
+  </li>
+  @endif
+  @if($pointType=='general')
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/webboards/general' ) }}">General</a>
+  </li>
+  @else
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/webboards/general' ) }}">General</a>
+  </li>
+  @endif
+  @if($pointType=='markets')
+  <li class="nav-item">
+    <a class="nav-link active"  href="{{ url('/webboards/markets' ) }}">Markets</a>
+  </li>
+  @else
+  <li class="nav-item">
+    <a class="nav-link"  href="{{ url('/webboards/markets' ) }}">Markets</a>
+  </li>
+  @endif
+  @if($pointType=='problems')
+  <li class="nav-item">
+    <a class="nav-link active " href="{{ url('/webboards/problems' ) }}">Problems</a>
+  </li>
+  @else
+  <li class="nav-item">
+    <a class="nav-link " href="{{ url('/webboards/problems' ) }}">Problems</a>
+  </li>
+  @endif
+
+
+</ul>
+
 <br>
 <div class="card">
 <table class="table">
@@ -37,11 +100,13 @@
       <td>{{ $firstNameCreate }} {{  $lastNameCreate }}</td>
       <td>
       <div>
-  <form action="/webboards/{{ $web->id }}" method="post">
+        @if(\Auth::user()->id == $web->created_by)
+  <form class="delete" action="/webboards/{{ $web->id }}" method="post">
    @csrf
    @method('DELETE')
   <button  class ="btn btn-danger"> Delete</button>
   </form>
+  @endif
       </div>
 
 
@@ -51,6 +116,16 @@
   </tbody>
 </table>
 
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 ">
+    <center>
+    {{$webboards->links()}}
+    </center>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
 
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -81,6 +156,18 @@
     <form action='/webboards/' method="post">
     {{ csrf_field() }}
     {{ $errors->first('name') }}
+    <div class=''>
+      <label>Type: </label>
+      <select style="margin-left:20px" name="type">
+      @foreach($type as $key => $value)
+          @if(old('type')==$key)
+          <option value="{{$key}}" selected>{{ $value }}</option>
+          @else
+          <option value="{{$key}}">{{ $value}}</option>
+          @endif
+      @endforeach
+      </select>
+    </div>
         <div class="">
         <label> Topic: </label>
         <input type="text" name="name" value="{{old('name')}}">
@@ -101,3 +188,18 @@
 </div>
 
 @endsection
+
+@push('script')
+<script>
+$(function() {
+
+    $(".delete").on("submit", function(){
+        return confirm("Do you want to delete this item?");
+    });
+
+    $(".delete btn btn-danger").on("submit", function(){
+        return confirm("Do you want to delete this item?");
+    });
+});
+</script>
+@endpush

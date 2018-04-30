@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('image');
             $table->enum('type', ['seller', 'organizer', 'administrator']);
-            $table->boolean('is_vertified');
-            $table->boolean('is_enabled');
+            $table->boolean('is_vertified')->default(false);
+            $table->boolean('is_enabled')->default(true);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

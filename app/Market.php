@@ -27,4 +27,12 @@ class Market extends Model
         , 'description', 'teaser', 'view', 'created_by', 'is_enabled', 'is_paid', 'latitude', 'longitude',
     ];
 
+    public function zones() {
+      return $this->hasMany('App\Zone');
+    }
+
+    public function marketImages() {
+      return $this->hasMany('App\MarketImage');
+    }
+
 }

@@ -15,15 +15,14 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
           $table->increments('id');
-          $table->unsignedInteger('market_id');
-          $table->string('zone');
+          $table->unsignedInteger('zone_id');
           $table->unsignedInteger('number');
           $table->unsignedInteger('reserved_by')->nullable();
           $table->boolean('is_paid');
           $table->timestamps();
           $table->softDeletes();
 
-          $table->foreign('market_id')->references('id')->on('markets');
+          $table->foreign('zone_id')->references('id')->on('zones');
           $table->foreign('reserved_by')->references('id')->on('users');
         });
     }
@@ -37,7 +36,7 @@ class CreateReservationsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::table('reservations', function (Blueprint $table) {
-          $table->dropForeign(['market_id']);
+          $table->dropForeign(['zone_id']);
           $table->dropForeign(['reserved_by']);
         });
         Schema::disableForeignKeyConstraints();

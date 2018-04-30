@@ -7,6 +7,7 @@ $factory->define(App\Log::class, function (Faker $faker) {
 
     return [
         //
+        'topic' => $faker->word,
         'event' => $faker->word,
         'created_by' => $faker->randomElement($user_ids),
     ];

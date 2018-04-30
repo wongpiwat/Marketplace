@@ -25,4 +25,9 @@ class Log extends Model
     protected $fillable = [
         'event', 'created_by',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

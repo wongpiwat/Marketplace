@@ -2,11 +2,21 @@
 
 @section('content-more')
 <div>
-  <h1>Users<h1>
+  <h1 style="color:#8AC560;">    <img src=" {{ asset('images/users.gif') }}" class="mr-3 mt-3 " style="width:150px; height:110; border-radius: 500px; ">
+ Users <h1>
+
 </div>
-<hr>
+
 <div>
-  <a class="btn btn-primary" href="">Create</a>
+  <a class="btn " style="float:right; background-color:#8AC560; color:white; "href="">Create</a>
+  <br>
+</div>
+<hr style="height:4px;background-color:#8AC560;">
+<div>
+  <a class="btn btn-info"  href="/users/form">Print</a>
+  <form  action="/search/user" class="form-inline" method="get" style="float:right">
+  <input class="form-control " name="str" type="text" placeholder="Search...">
+  </form>
 </div>
 <br>
 <div class="card">
@@ -34,5 +44,15 @@
 
 </tbody>
 </table>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 ">
+    <center>
+    {{$users->links()}}
+    </center>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
 </div>
 @endsection

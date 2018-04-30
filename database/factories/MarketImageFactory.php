@@ -9,6 +9,6 @@ $factory->define(App\MarketImage::class, function (Faker $faker) {
         //
         'market_id' => $faker->randomElement($market_ids),
         'path' => $faker->url,
-        'type' => $faker->randomElement(['profile', 'screenshot']),
+        'type' => $faker->randomElement(['layout', 'screenshot']),
     ];
 });

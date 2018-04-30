@@ -12,6 +12,6 @@ class CheckInsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\CheckIn::class, 10)->create();
+        // factory(App\CheckIn::class, 10)->create();
     }
 }

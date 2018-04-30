@@ -25,4 +25,12 @@ class Webboard extends Model
     protected $fillable = [
         'topic', 'details', 'created_by',
     ];
+
+    public function users() {
+      return $this->belongsToMany('App\User');
+    }
+
+    public function webboardReplys() {
+      return $this->hasMany('App\WebboardReply');
+    }
 }

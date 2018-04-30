@@ -1,23 +1,33 @@
 @extends('layouts.master')
 
-@section('page­title')
-User Detail
-@endsection
-
 @section('content')
-<div class="panel panel-default">
-    <div class="panel-­heading">
-        <h2>{{ $user->username }}</h2>
-        <p>[ <i class="fa fa-user-circle"></i> {{ $user->access_level }} ]</p>
+
+<a href="/markets/{{ $market->id }}">Reservations</a><span> > </span>{{ $reservation->id }}<br><br>
+<div class="panel panel-default card">
+    <div class="panel-­heading card-header">
+        <h2>{{ $reservation->id }}</h2>
     </div>
-    <ul class="list-group">
-      <li class="list-group-item">Name: {{ $user->name }}</li>
-      <li class="list-group-item">Email: {{ $user->email }}</li>
-      <li class="list-group-item">Enabled? {!! $user->is_enabled ?'<i class="fa fa-check"></i>': '<i class="fa fa-times"></i>' !!}</li>
-      <li class="list-group-item">Joining Date: {{ $user->created_at->diffForHumans() }}</li>
-    </ul>
-    <div class="panel-footer">
-      <a class="btn btn-default" href="{{ url('/users/' . $user->id . '/edit') }}">Edit</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">Image</th>
+        </tr>
+      </thead>
+    <tbody>
+      @foreach($reservation->checkIns as $image)
+        <tr>
+          <th scope = "row" >{{ $loop->iteration }}</th>
+          <td>Date:{{ $image->created_at }}</td>
+          <td><img src="{{ $image->path }}" ></td>
+        </tr>
+      @endforeach
+    </tbody>
+    </table>
+
+    <div class="card-footer">
     </div>
 </div>
+
 @endsection

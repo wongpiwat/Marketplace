@@ -35,7 +35,11 @@ margin-bottom: -20px;
   margin-left: 20px;
 }
 .image_recent{
-  width: 50px;
+  width: 90px;
+  height: 50px;
+}
+.image_markets{
+  width: 85px;
   height: 50px;
 }
 .recent_description{
@@ -63,6 +67,6 @@ a{
 }
 .recommend p{
   color:gray;
-  font-size: 12px;
+  font-size: 16px;
 
 }

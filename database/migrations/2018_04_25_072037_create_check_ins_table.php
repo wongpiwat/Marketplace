@@ -16,7 +16,7 @@ class CreateCheckInsTable extends Migration
         Schema::create('check_ins', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('reservation_id');
-            $table->dateTime('dateTime');
+            $table->longText('path');
             $table->timestamps();
             $table->softDeletes();
 

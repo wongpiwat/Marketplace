@@ -35,4 +35,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isSuperAdmin(){
+      return $this->type == 'administrator';
+    }
+
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany('App\Feedback');
+    }
+
+    public function logs()
+    {
+        return $this->hasMany('App\Log');
+    }
+
+    public function webboards() {
+      return $this->hasMany('App\Webboard');
+    }
 }

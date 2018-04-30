@@ -17,7 +17,7 @@ class CreateMarketImagesTable extends Migration
           $table->increments('id');
           $table->unsignedInteger('market_id');
           $table->text('path');
-          $table->enum('type',['profile', 'screenshot']);
+          $table->enum('type',['layout', 'screenshot']);
           $table->timestamps();
           $table->softDeletes();
 

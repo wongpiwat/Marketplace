@@ -26,4 +26,8 @@ class MarketImage extends Model
     protected $fillable = [
         'market_id', 'path', 'type',
     ];
+
+    public function markets() {
+        return $this->belongsToMany('App\Market');
+    }
 }

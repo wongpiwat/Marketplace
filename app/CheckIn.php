@@ -22,6 +22,11 @@ class CheckIn extends Model
      * @var array
      */
     protected $fillable = [
-        'reservation_id', 'dateTiem',
+        'reservation_id', 'path',
     ];
+
+    public function reservations()
+    {
+        return $this->belongsToMany('App\Reservation');
+    }
 }
