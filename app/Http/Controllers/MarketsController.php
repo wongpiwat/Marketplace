@@ -108,7 +108,7 @@ class MarketsController extends Controller {
 
       if ($request->hasFile('market_layout')) {
         $file = $request->file('market_layout');
-        $path = 'img_layout_'.$mytime->toDateTimeString().'_'.$file->getClientOriginalName();
+        $path = 'lo_'.$file->getClientOriginalName();
         $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$id_market),$path);
         DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$id_market, $path, 'layout']);
       }
@@ -116,7 +116,7 @@ class MarketsController extends Controller {
       if ($request->hasFile('market_screenshot')) {
         $files = $request->file('market_screenshot');
         foreach($files as $file) {
-          $path = 'img_screenshot_'.$mytime->toDateTimeString().'_'.$file->getClientOriginalName();
+          $path = 'ss_'.$file->getClientOriginalName();
           $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$id_market),$path);
           DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$id_market, $path, 'screenshot']);
         }
