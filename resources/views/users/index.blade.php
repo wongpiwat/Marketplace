@@ -8,7 +8,7 @@
 </div>
 
 <div>
-  <a class="btn " style="float:right; background-color:#8AC560; color:white; "href="">Create</a>
+  <a class="btn " style="float:right; background-color:#8AC560; color:white; "href="/users/create">Create</a>
   <br>
 </div>
 <hr style="height:4px;background-color:#8AC560;">

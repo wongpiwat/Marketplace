@@ -65,4 +65,10 @@ class FeedbackPolicy
         //
         return $user->isSuperAdmin();
     }
+
+    public function getForm(User $user)
+    {
+
+        return $user->isSuperAdmin();
+    }
 }

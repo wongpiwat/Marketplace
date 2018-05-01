@@ -46,7 +46,7 @@
       <h4>{{ $firstnameCreated }} {{ $lastnameCreated }} <small style="font-size:15px;"><i>Posted on {{ $webboard->created_at }}</i></small></h4>
       <p> {{ $webboard->details }} </p>
       @if(\Auth::user()->id == $webboard->created_by)
-        <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
+        <button style="border-radius: 25px;float:right" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
         @endif
     <div>
       @if(\Auth::user()->id == $webboard->created_by || \Auth::user()->type == 'administrator')
@@ -56,6 +56,7 @@
       <input type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">
       </form>
       @endif
+      <hr>
     </div>
 
       @foreach($replys as $p)
@@ -76,13 +77,15 @@
           {{ $p->comment }}
          </p>
          @if(\Auth::user()->id == $p->created_by)
-         <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
+         <button style="border-radius: 25px;float:right" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
          @endif
          <form action="/webboards/{{ $webboard->id }}/{{ $p->id }}" method="post" class="has-confirm" data-message="Delete?">
            @csrf
            @method('DELETE')
           <button type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">Delete</button>
+
         </form>
+                  <hr>
         </div>
       </div>
       @endforeach
@@ -90,7 +93,7 @@
   </div>
 </div>
 
-<div>
+<div style="margin-bottom:200px">
   <button  style="border-radius: 25px;" class ="btn btn-primary" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> Reply</button>
 </div>
 

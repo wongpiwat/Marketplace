@@ -119,7 +119,7 @@ function DateEng($strDate){
           <hr>
           <img src="{{ asset('images/feedback.png') }}" class="image-social">
           <span>
-          <a href="/feedback" class="text-social">Feedback</a></span>
+          <a href="/feedbacks/create" class="text-social">Feedback</a></span>
 
 
         </div>

@@ -36,13 +36,14 @@
     <div class="media-body">
       <h4>{{ $firstnameCreated }} {{ $lastnameCreated }} <small style="font-size:15px;"><i>Posted on {{ $webboard->created_at }}</i></small></h4>
       <p> {{ $webboard->details }} </p>
-        <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
+        <button style="border-radius: 25px;float:right" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
     <div>
       <form  class='delete' action="/support/{{ $webboard->id }}/{{ $market->id }}" method="post">
       @csrf
       @method('DELETE')
       <input type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">
       </form>
+      <hr>
     </div>
 
       @foreach($replys as $p)
@@ -62,13 +63,15 @@
           <p>
           {{ $p->comment }}
          </p>
-         <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
-         <form class="delete" action="/webboards/{{ $webboard->id }}/{{ $market->id }}/{{ $p->id }}" method="post">
+         <button style="border-radius: 25px;float:right" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
+         <form class="delete" action="/support/{{ $webboard->id }}/{{ $market->id }}/{{ $p->id }}/delete" method="post">
            @csrf
            @method('DELETE')
           <input type="submit" class ="btn btn-danger"  value="Delete" style="border-radius: 25px;">
         </form>
+        <hr>
         </div>
+
       </div>
       @endforeach
     </div>

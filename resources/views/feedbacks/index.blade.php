@@ -27,13 +27,15 @@
 <tbody>
 
   @foreach($feedbacks as $feedback)
+
     <tr>
       <th scope = "row" >{{ $loop->iteration }}</th>
+
         @foreach($users as $user)
         @if($feedback->created_by == $user->id)
-        <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
-        <td><a href=" {{ url('/feedbacks/' . $feedback->id) }} ">{{ $feedback->topic }}</a></td>
-        <td>{{ $feedback->created_at }}</td>
+          <td><a href=" {{ url('/users/' . $user->id) }} ">{{ $user->first_name }} {{ $user->last_name }}</a></td>
+          <td><a href=" {{ url('/feedbacks/' . $feedback->id) }} ">{{ $feedback->topic }}</a></td>
+          <td>{{ $feedback->created_at }}</td>
         @endif
         @endforeach
     </tr>

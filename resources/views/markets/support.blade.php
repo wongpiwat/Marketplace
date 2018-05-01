@@ -2,15 +2,18 @@
 
 @section('content')
 <div>
-  <h1>Q&A about {{ $market->name }}<h1>
+  <a href="/markets/page/{{ $market->id }}">Market</a> > <span> Q&A {{ $market->name }}</span>
 </div>
+
+<img src=" {{ asset('images/support.gif') }}"  class="mr-3 mt-3 rounded-circle" style="width:120px; height:90; border-radius: 25px; ">
+  <h1 style="color:#DF6919">Q&A {{ $market->name }}</h1>
 <div class="row">
   <div class="col-md-10"></div>
     <div class="col-md-2">
-      <a class ="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right;"> Create</a>
+      <a class ="btn" data-toggle="modal" data-target="#myModal" style="background-color:#EA6B5A;float:right ; color:#EDEDEB;"> Create</a>
     </div>
 </div>
-<hr>
+<hr style="height:4px;background-color:#EA6B5A;">
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -21,9 +24,7 @@
     </div>
 @endif
 <div>
-  <form  action="/search/webboard" class="form-inline" style="float:right" method="get">
-  <input class="form-control " name="str" type="text" placeholder="Search...">
-  </form>
+
 </div>
 
 

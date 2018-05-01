@@ -45,6 +45,7 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('/display','HomeController@display');
 
 
+Route::delete('/support/{webboard}/{market}/{webboardReply}/delete' , 'WebboardsController@destroySupportComment');
 Route::get('/webboards/','WebboardsController@index');
 Route::post('/webboards/','WebboardsController@store');
 Route::get('/webboards/general','WebboardsController@general');
@@ -57,11 +58,12 @@ Route::delete('/webboards/{webboard}' , 'WebboardsController@destroy');
 Route::delete('/webboards/{webboard}/{webboardReply}','WebboardsController@destroyComment');
 Route::post('/webboards/{webboard}/updateTopic','WebboardsController@editTopic');
 
+
 Route::get('/support/{market}','MarketsController@support');
 Route::get('/support/{market}/{webboard}', 'MarketsController@supportShow');
 Route::post('/webboards/{market}','WebboardsController@storeSupport');
 Route::delete('/support/{webboard}/{market}' , 'WebboardsController@destroySupport');
-Route::delete('/support/{webboard}/{market}/{webboardReply}' , 'WebboardsController@destroySupportComment');
+
 Route::post('/support/{market}/{webboard}/addReplySupport', 'WebboardsController@addReplySupport');
 Route::post('/support/{market}/{webboard}/updateComment','WebboardsController@editCommentSupport');
 Route::post('/support/{market}/{webboard}/updateTopic','WebboardsController@editTopicSupport');

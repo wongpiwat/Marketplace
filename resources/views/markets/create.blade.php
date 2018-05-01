@@ -45,36 +45,36 @@
       <div class="row">
         <div class="col-md-6">
           <label class="col-md-5 text-md-right">Market Name<span class="red">*</span></label>
-          <input type='text' name='name' value='{{ old('name') }}'><br>
+          <input type='text' name='name' value='{{ old('name') }}' required><br>
 
           <label class="col-md-5 text-md-right">Location<span class="red">*</span></label>
-          <textarea type='text' name='location' rows='3'>{{ old('location') }}</textarea><br>
+          <textarea type='text' name='location' rows='3' required>{{ old('location') }}</textarea><br>
 
           <label class="col-md-5 text-md-right">Start Day<span class="red">*</span></label>
-          <input type="date" name="start_day" value='{{ old('start_day') }}'><br>
+          <input type="date" name="start_day" value='{{ old('start_day') }}' required><br>
 
           <label class="col-md-5 text-md-right">Close Day<span class="red">*</span></label>
-          <input type="date" name="close_day" value='{{ old('close_day') }}'><br>
+          <input type="date" name="close_day" value='{{ old('close_day') }}' required><br>
 
           <label class="col-md-5 text-md-right">Start Time<span class="red">*</span></label>
-          <input id="inputStartTime" value="{{ old('start_time') }}" name="start_time" placeholder="00:00"><br>
+          <input id="inputStartTime" value="{{ old('start_time') }}" name="start_time" placeholder="00:00" required><br>
 
           <label class="col-md-5 text-md-right">Close Time<span class="red">*</span></label>
-          <input id="inputEndTime" value="{{ old('close_time') }}" name="close_time" placeholder="00:00"><br>
+          <input id="inputEndTime" value="{{ old('close_time') }}" name="close_time" placeholder="00:00" required><br>
         </div>
 
         <div class="col-md-6">
           <label class="col-md-5 text-md-right">Organizer Name<span class="red">*</span></label>
-          <input type='text' name='organizer_name' value='{{ old('organizer_name') }}'><br>
+          <input type='text' name='organizer_name' value='{{ old('organizer_name') }}' required><br>
 
           <label class="col-md-5 text-md-right">Contact Name<span class="red">*</span></label>
-          <input type='text' name='contact_name' value='{{ old('contact_name') }}'><br>
+          <input type='text' name='contact_name' value='{{ old('contact_name') }}' required><br>
 
           <label class="col-md-5 text-md-right">Email<span class="red">*</span></label>
-          <input type='text' name='email' value='{{ old('email') }}'><br>
+          <input type='email' name='email' value='{{ old('email') }}' required><br>
 
           <label class="col-md-5 text-md-right">Phone<span class="red">*</span></label>
-          <input type='text' name='phone' value='{{ old('phone') }}'><br>
+          <input type='text' name='phone' value='{{ old('phone') }}' required pattern="[0-9]{10}"><br>
 
           <label class="col-md-5 text-md-right">Youtube Video Teaser</label>
           <input type='text' name='teaser' value='{{ old('teaser') }}'><br>
@@ -83,7 +83,7 @@
 
       <div class="" style="display: flex;flex-direction:column;">
         <label style="margin-left:10%">Description<span class="red">*</span></label>
-        <center><textarea class="form-control" rows="8" name="description" style="width:80%">{{ old('description') }}</textarea></center>
+        <center><textarea class="form-control" rows="8" name="description" style="width:80%" required>{{ old('description') }}</textarea></center>
       </div><br>
 
       <div class="" style="display: flex;flex-direction:column;">
@@ -91,8 +91,8 @@
         <center><div id="map" style="width:80%"></div></center>
       </div><br>
 
-      <input hidden type="text" id="lat_value" name="latitude">
-      <input hidden type="text" id="lng_value" name="longitude"><br><hr>
+      <input hidden type="text" id="lat_value" name="latitude" >
+      <input hidden type="text" id="lng_value" name="longitude" ><br><hr>
 
       <h3><u>Upload Images</u></h3>
       <label class="col-md-3 text-md-right">Market Layout<span class="red">*</span></label>

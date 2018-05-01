@@ -315,7 +315,7 @@ class MarketsController extends Controller {
           }
         }
       }
-      $pdf = PDF::loadView('Reservations.form', compact('reservations','users','markets','zones'));
+      $pdf = PDF::loadView('Reservations.form', compact('reservations','users','market','zones'));
       return $pdf->stream();
     }
 

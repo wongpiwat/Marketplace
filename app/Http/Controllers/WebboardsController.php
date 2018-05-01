@@ -251,6 +251,7 @@ class WebboardsController extends Controller {
 
     public function destroySupportComment(Webboard $webboard,Market $market,WebboardReply $webboardReply){
       $this->authorize('delete', $webboard, $webboardReply);
+
       $webboardReply->delete();
       $log = new Log;
       $log->topic = 'DELETE Q&A';

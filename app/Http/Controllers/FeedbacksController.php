@@ -91,14 +91,14 @@ class FeedbacksController extends Controller {
     }
 
     public function search(Request $request) {
-      $this->authorize('getForm', Feedback::class);
+      // $this->authorize('getForm', Feedback::class);
 
 
-      $str = $request->str;
+      $str = $request->input('str');
       $users = User::all();
      $feedbacks = DB::table('feedbacks')
      ->join('users','feedbacks.created_by','=','users.id')
-     ->select('feedbacks.created_by','feedbacks.topic','feedbacks.comment','feedbacks.created_at')
+     ->select('feedbacks.id','feedbacks.created_by','feedbacks.topic','feedbacks.comment','feedbacks.created_at')
      ->where('users.first_name','like','%'.$str.'%')
      ->orWhere('users.last_name','like','%'.$str.'%')
      ->orWhere('feedbacks.topic','like','%'.$str.'%')

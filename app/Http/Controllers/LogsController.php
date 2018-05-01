@@ -62,7 +62,7 @@ class LogsController extends Controller {
       $users = User::all();
       $logs = DB::table('logs')
               ->join('users','logs.created_by','=','users.id')
-              ->select('logs.created_by','logs.event','logs.created_at')
+              ->select('logs.id','logs.topic','logs.created_by','logs.event','logs.created_at')
               ->where('users.first_name','like','%'.$str.'%')
               ->orWhere('users.last_name','like','%'.$str.'%')
               ->orWhere('logs.event','like','%'.$str.'%')

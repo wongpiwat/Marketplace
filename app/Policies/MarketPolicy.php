@@ -63,7 +63,7 @@ class MarketPolicy
     }
 
     public function getForm(User $user) {
-      return $user->isSuperAdmin() || $user->id === $market->created_by;
+      return true;
     }
 
 }
