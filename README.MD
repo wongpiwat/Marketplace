@@ -12,8 +12,8 @@ Marketplace
 7.แก้ไขที่ไฟล์ .env ในโฟลเดอร์  Marketplace ในส่วนของ  DB_DATABASE=the_marketplace  DB_USERNAME  และ  DB_PASSWORD ใส่ตามกรณีที่เราต้องการเข้าถึง เช่น  Admin ให้ใส่ DB_USERNAME=admin และ DB_PASSWORD=password
 
 เริ่มการทำงาน
-1. ทำการเปิด Command Prompt (CMD)
-2. cd ไปที่โปรเจค
+1. ทำการเปิด Command Prompt ในระบบปฏิบัติการ Windows หรือ เปิด Terminal ในระบบปฏิบัติการ MacOS
+2. cd ไปที่โฟลเดอร์โปรเจค
 3. พิมพ์คำสั่ง php artisan storage:link
 4. พิมพ์คำสั่ง php artisan serve
 5. เข้าไปที่ 127.0.0.1:8000
