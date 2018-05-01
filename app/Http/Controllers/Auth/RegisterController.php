@@ -50,7 +50,6 @@ class RegisterController extends Controller {
             'address' => $data['address'],
             'birthday' => $data['birthday'],
             'phone' => $data['phone'],
-            'image' => $data['image'],
             'type' => $data['type'],
         ]);
 

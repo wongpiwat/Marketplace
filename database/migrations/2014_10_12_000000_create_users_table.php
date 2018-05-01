@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('birthday');
             $table->string('phone');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->enum('type', ['seller', 'organizer', 'administrator']);
             $table->boolean('is_vertified')->default(false);
             $table->boolean('is_enabled')->default(true);
