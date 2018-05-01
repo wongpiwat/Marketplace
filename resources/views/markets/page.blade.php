@@ -73,7 +73,21 @@ function DateEng($strDate){
               @endforeach
               @if($has_empty)
                 @if(\Auth::user()->type == 'seller')
-                  <a class="btn btn-primary" style="float:right;font-size:20px;" href="{{ url('/reservations/create/'. $market->id) }}">Reserve</a>
+                  <?php
+                    $now = Carbon\Carbon::now();
+                    $year = $now->year;
+                    $month = $now->month;
+                    $day = $now->day;
+                    $dayMarketStart = explode("-",$market->start_day);
+                    $yearStart = $dayMarketStart[0];
+                    $monthStart = $dayMarketStart[1];
+                    $dayStart = $dayMarketStart[2];
+                   ?>
+                  @if($year <= $yearStart && $month <= $monthStart && $day < $dayStart)
+                    <a class="btn btn-primary" style="float:right;font-size:20px;" href="{{ url('/reservations/create/'. $market->id) }}">Reserve</a>
+                  @else
+                    <a class="btn" style="float:right;font-size:20px;pointer-events: none;cursor: default;background-color:gray;color:white" >Reserve</a>
+                  @endif
                 @else
                   <a class="btn" style="float:right;font-size:20px;pointer-events: none;cursor: default;background-color:gray;color:white" >Reserve</a>
                 @endif

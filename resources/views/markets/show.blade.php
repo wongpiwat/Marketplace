@@ -11,6 +11,8 @@
       <li class="list-group-item">Location: {{ $market->location }}</li>
       <li class="list-group-item">Start Time: {{ $market->start_time }}</li>
       <li class="list-group-item">Close Time: {{ $market->close_time }}</li>
+      <li class="list-group-item">Start Day: {{ $market->start_day }}</li>
+      <li class="list-group-item">Close Day: {{ $market->close_day }}</li>
       <li class="list-group-item">Organizer name: {{ $market->organizer_name }}</li>
       <li class="list-group-item">Contact Name: {{ $market->contact_name }}</li>
       <li class="list-group-item">E-mail: {{ $market->email }}</li>
@@ -46,6 +48,7 @@
           <th scope="col">Zone</th>
           <th scope="col">Number</th>
           <th scope="col">Reserved By</th>
+          <th scope="col">Price</th>
           <th scope="col">Paid</th>
         </tr>
       </thead>
@@ -73,18 +76,41 @@
                 @if($is_reserved == false)
                   <td>-</td>
                 @endif
-
+                <td>{{ $zone->price }}</td>
                 <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
                 @if($reservation->is_paid == true)
+
+                  @if(\Auth::user()->type == 'seller')
                   <td>
-                    <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
-                      @csrf
-                      @method('PUT')
-                      <button class="btn btn-danger" type="submit" name="button">Cancel</button>
-                    </form>
+
+                      <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
+                        @csrf
+                        @method('PUT')
+                        <button class="btn btn-danger" type="submit" name="button">Cancel</button>
+                      </form>
+
                   </td>
+                  @endif
                   <td>
-                    <a href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn btn-info">Check In</a>
+                    <?php
+                      $now = Carbon\Carbon::now();
+                      $year = $now->year;
+                      $month = $now->month;
+                      $day = $now->day;
+                      $dayMarketStart = explode("-",$market->start_day);
+                      $yearStart = $dayMarketStart[0];
+                      $monthStart = $dayMarketStart[1];
+                      $dayStart = $dayMarketStart[2];
+                      $dayMarketClose = explode("-",$market->close_day);
+                      $yearClose = $dayMarketClose[0];
+                      $monthClose = $dayMarketClose[1];
+                      $dayClose = $dayMarketClose[2];
+                     ?>
+                    @if($year >= $yearStart && $month >= $monthStart && $day >= $dayStart && $year <= $yearClose && $month <= $monthClose && $day <= $dayClose)
+                      <a href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn btn-info">Check In</a>
+                    @else
+                      <button disabled href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn" style="background-color:gray; color:white">Check In</button>
+                    @endif
                   <td>
                 @else
                 <td>
@@ -119,9 +145,10 @@
                 @if($is_reserved == false)
                   <td>-</td>
                 @endif
-
+                <td>{{ $zone->price }}</td>
                 <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
                 @if($reservation->is_paid == true)
+                @if(\Auth::user()->type == 'seller')
                   <td>
                     <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
                       @csrf
@@ -129,6 +156,7 @@
                       <button class="btn btn-danger" type="submit" name="button">Cancel</button>
                     </form>
                   </td>
+                  @endif
                 @else
                 <td>
                   <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
@@ -162,7 +190,7 @@
                 @if($is_reserved == false)
                   <td>-</td>
                 @endif
-
+                <td>{{ $zone->price }}</td>
                 <td>{!! $reservation->is_paid ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' !!}</td>
 
               </tr>

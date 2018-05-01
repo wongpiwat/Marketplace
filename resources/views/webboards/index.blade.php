@@ -100,7 +100,7 @@
       <td>{{ $firstNameCreate }} {{  $lastNameCreate }}</td>
       <td>
       <div>
-        @if(\Auth::user()->id == $web->created_by)
+        @if(\Auth::user()->id == $web->created_by || \Auth::user()->type == 'administrator')
   <form class="delete" action="/webboards/{{ $web->id }}" method="post">
    @csrf
    @method('DELETE')

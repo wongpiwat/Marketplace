@@ -17,7 +17,7 @@ class MarketsTableSeeder extends Seeder {
       $market->contact_name = 'Surat';
       $market->email = 'surat_going@hotmail.com';
       $market->phone = '0968122727';
-      $market->description = 'true';
+      $market->description = 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท';
       $market->teaser = 'rgvfKvl7zWA';
       $market->view = '25';
       $market->created_by =  $user;
@@ -41,7 +41,7 @@ class MarketsTableSeeder extends Seeder {
       $market->contact_name = 'คุณแต้ว่';
       $market->email = 'taweecc@hotmail.com';
       $market->phone = '0907811712';
-      $market->description = 'true';
+      $market->description = 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท';
       $market->teaser = 'pk8HzIO_j3w';
       $market->view = '35';
       $market->created_by =  $user;
@@ -86,7 +86,7 @@ class MarketsTableSeeder extends Seeder {
       $market->contact_name = 'Surat';
       $market->email = 'surat_going@hotmail.com';
       $market->phone = '0968122727';
-      $market->description = 'true';
+      $market->description = 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท';
       $market->teaser = 'mIQtWbwAb3A';
       $market->view = '25';
       $market->created_by = $user;

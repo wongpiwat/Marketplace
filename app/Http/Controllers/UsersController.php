@@ -125,6 +125,12 @@ class UsersController extends Controller {
     public function updateSetting(Request $request) {
       // $this->authorize('update', $user);
 
+      $request->validate([
+        'first_name'=> 'required|min:1',
+         'last_name' => 'required|min:1',
+          'address'=> 'required|min:1',
+        'phone'=> 'required|min:10|max:10']);
+
       $id_user = \Auth::user()->id;
       $user = \Auth::user();
       if ($request->hasFile('img_files')) {
@@ -137,7 +143,6 @@ class UsersController extends Controller {
       }
       $user->first_name =  $request->input('first_name');
       $user->last_name =  $request->input('last_name');
-      $user->email =  $request->input('email');
       $user->phone =  $request->input('phone');
       $user->address =  $request->input('address');
       $user->save();

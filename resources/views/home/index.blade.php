@@ -110,7 +110,7 @@ use Illuminate\Support\Facades\DB;
                   @else
                   <div class="row">
                     <div class="col-md-3">
-                        <a href="{{ url('/markets/page/'.$recommend[$i]->id) }}"><img src="{{ asset('storage/users/'.$recommend[$i]->created_by.'/markets/'.$recommend[$i]->id.'/'.$screenshot ) }}" width="90px" height="50px"></a>
+                        <a href="{{ url('/markets/page/'.$recommend[$i]->id) }}"><img src="{{ asset('storage/users/'.$recommend[$i]->created_by.'/markets/'.$recommend[$i]->id.'/'.$screenshot ) }}" class="image_markets"></a>
 
                     </div>
                     <div class="col-md-9">
@@ -229,15 +229,15 @@ use Illuminate\Support\Facades\DB;
 
            @for($j=0;$j<=$numupcome;$j++)
            <?php
-           $screenshot = App\MarketImage::where('market_id',$upcome[$i]->id)->get();
+           $screenshot = App\MarketImage::where('market_id',$upcome[$count]->id)->get();
            if(!$screenshot->isEmpty()) {
-             $screenshot = App\MarketImage::where('market_id',$upcome[$i]->id)->where('type','screenshot')->first()->path;
+             $screenshot = App\MarketImage::where('market_id',$upcome[$count]->id)->where('type','screenshot')->first()->path;
            } else {
              $screenshot = null;
            }
            ?>
            <div class="col-md-4  ">
-                   <a href="{{ url('/markets/page/'.$upcome[$count]->id) }}"><img class="card-img-top" src="{{ asset('storage/users/'.$upcome[$i]->created_by.'/markets/'.$upcome[$i]->id.'/'.$screenshot ) }}" alt="Card image" style="width:100%;height:150px;">
+                   <a href="{{ url('/markets/page/'.$upcome[$count]->id) }}"><img class="card-img-top" src="{{ asset('storage/users/'.$upcome[$count]->created_by.'/markets/'.$upcome[$count]->id.'/'.$screenshot ) }}" alt="Card image" style="width:100%;height:150px;">
                    <h5 class="card-title" style="margin-top:5px">   {{$upcome[$count]->name}}</h5></a>
                    <p class="card-text" style="margin-top:-10px;">{{DateEng($upcome[$count]->start_day)[0]}}</p>
 

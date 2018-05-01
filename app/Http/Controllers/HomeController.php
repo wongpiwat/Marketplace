@@ -36,7 +36,7 @@ class HomeController extends Controller {
       $query->where('name','like','%'.$text.'%')->orWhere('location','like','%'.$text.'%');
     })->paginate(5);
 
-    $text = strtoupper($text);
+    
     return view('home.search',['search'=>$searhFromDB,'action'=>$action,'recent'=>$recent,'text'=>$text,'webboard'=>$webboard]);
     }
 }

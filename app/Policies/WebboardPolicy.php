@@ -57,6 +57,14 @@ class WebboardPolicy
     public function delete(User $user, Webboard $webboard)
     {
         //
+        
         return $user->id === $webboard->created_by || $user->isSuperAdmin();
+    }
+
+    public function deleteReply(User $user, WebboardReply $webboardReply)
+    {
+        //
+
+        return $user->id === $webboardReply->created_by || $user->isSuperAdmin();
     }
 }

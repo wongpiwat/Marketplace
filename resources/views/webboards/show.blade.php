@@ -45,9 +45,11 @@
     <div class="media-body">
       <h4>{{ $firstnameCreated }} {{ $lastnameCreated }} <small style="font-size:15px;"><i>Posted on {{ $webboard->created_at }}</i></small></h4>
       <p> {{ $webboard->details }} </p>
-        <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
-    <div>
       @if(\Auth::user()->id == $webboard->created_by)
+        <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditTopicModal">Edit</button>
+        @endif
+    <div>
+      @if(\Auth::user()->id == $webboard->created_by || \Auth::user()->type == 'administrator')
       <form action="/webboards/{{ $webboard->id }}" method="post" class="has-confirm" data-message="Delete?">
       @csrf
       @method('DELETE')
@@ -73,7 +75,9 @@
           <p>
           {{ $p->comment }}
          </p>
+         @if(\Auth::user()->id == $p->created_by)
          <button style="border-radius: 25px;" class ="btn btn-warning" name="edit"  class="btn btn-info btn-lg" data-toggle="modal" data-target="#EditmyModal" data-title="{{ $p->comment }}" data-comment="{{ $p->comment }}"  data-id="{{ $p->id}}">Edit</button>
+         @endif
          <form action="/webboards/{{ $webboard->id }}/{{ $p->id }}" method="post" class="has-confirm" data-message="Delete?">
            @csrf
            @method('DELETE')
@@ -135,7 +139,7 @@
       <div class="">
 
 
-      <textarea name="pointComment" style="display:none;" id="objectComment"  style='width:10%' rows="8" col="1200"></textarea>
+      <textarea name="point" style="display:none;" id="objectComment"  style='width:10%' rows="8" col="1200"></textarea>
 
       <div class="fetched-data"></div>
           <textarea name="commentEdit" id="com"  style='width:100%' rows="8" col="1200"></textarea>
@@ -153,6 +157,7 @@
 </div>
 </div>
 
+<script src="{{asset('js/app.js')}}"></script>
 <script>
 $(function() {
     $('#EditmyModal').on("show.bs.modal", function (e) {

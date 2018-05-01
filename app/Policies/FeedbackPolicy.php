@@ -38,7 +38,7 @@ class FeedbackPolicy
     public function create(User $user)
     {
         //
-        return $user->isSuperAdmin();
+        return true;
     }
 
     /**

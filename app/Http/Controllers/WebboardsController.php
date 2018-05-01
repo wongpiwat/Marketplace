@@ -53,12 +53,15 @@ class WebboardsController extends Controller {
     public function edit(Webboard $createMarket) {
 
     }
-    public function editComment(Webboard $webboard,Request $request){
-      $this->authorize('update', $webboard);
+    public function editComment(Request $request, Webboard $webboard){
+      // $this->authorize('update', $webboard);
 
         $request->validate(['commentEdit' => 'required|min:1|max:100|']);
-        $idComment=$request->input('pointComment');
+        // dd($request->input('point'));
+        $idComment=$request->input('point');
         $newComment =$request->input('commentEdit');
+
+
         DB::table('webboard_replies')->where('id', $idComment)->update(['comment' => $newComment]);
 
         $log = new Log;
@@ -124,7 +127,7 @@ class WebboardsController extends Controller {
 
 
     public function destroyComment(Webboard $webboard,WebboardReply $webboardReply){
-      $this->authorize('delete', $webboard, $webboardReply);
+      // $this->authorize('deleteReply', $webboardReply);
 
         $webboardReply->delete();
 
@@ -141,7 +144,7 @@ class WebboardsController extends Controller {
         $pointType='general';
         $type = ['general'=>'general', 'problems'=>'problems', 'markets'=>'markets'];
 
-    $webboard = Webboard::where('type', 'general')->paginate(10);
+    $webboard = Webboard::where('type', 'general')->orderBy('updated_at','desc')->paginate(10);
     return view('webboards.index', ['webboards' => $webboard ,'type' => $type,'pointType' =>$pointType ]);
     }
 

@@ -132,8 +132,8 @@
         <label>Name</label><input  name="first_name" type='text' class='form-control'  value=' {{{ Auth::user()->first_name }}}'  >
         <label>Last name  </label><input name="last_name" type='text' class='form-control'  value='{{{ Auth::user()->last_name }}} ' >
         <label>BirthDay  </label><input name="birthday" type='date' class='form-control'  value='{{{ Auth::user()->birthday }}}' >
-        <label>Address  </label><textarea rows="4" name="address" type='text' class='form-control'  >{{{ Auth::user()->address }}}</textarea>
-        <label>Email </label><input name="email"  type='text' class='form-control'  value='{{{ Auth::user()->email }}}' >
+        <label>Address  </label><textarea rows="4" name="address" type='text' class='form-control'  >{{ Auth::user()->address }}</textarea>
+        <label>Email </label><label name="email"  type='text' class='form-control'>{{ Auth::user()->email }}</label>
         <label>Number telephone </label><input name="phone" type='text' class='form-control'  value='{{{ Auth::user()->phone }}}' >
         <input type="file" name="img_files" onchange="previewFile()"  ><br>
         <br>
