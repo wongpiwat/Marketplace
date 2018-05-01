@@ -14,6 +14,10 @@ use PDF;
 
 class ReservationsController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
     public function index() {
 
     }
@@ -100,4 +104,27 @@ class ReservationsController extends Controller {
       return redirect('/markets/'.$market->id);
 
     }
+
+    public function paymentForm(Request $request, Market $market, Reservation $reservation){
+      $this->authorize('reserve', $reservation);
+
+      return view('markets.payment', compact('market','reservation'));
+    }
+
+    public function cancelReservation(Market $market, Reservation $reservation){
+      $this->authorize('update', $reservation, $market);
+
+      $reservation->is_paid = false;
+      $reservation->reserved_by = null;
+      $reservation->save();
+
+      $log = new Log;
+      $log->topic = 'CANCEL RESERVATION';
+      $log->event = 'ID: '.$reservation->id;
+      $log->created_by = \Auth::user()->id;
+      $log->save();
+
+      return redirect('/markets/'. $market->id);
+    }
+
 }

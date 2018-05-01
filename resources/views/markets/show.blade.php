@@ -114,11 +114,22 @@
                   <td>
                 @else
                 <td>
-                  <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
+                  @if(\Auth::user()->type == 'seller')
+                  <!-- <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
                     @csrf
                     @method('PUT')
                     <button class="btn btn-primary" type="submit" name="button">Pay</button>
-                  </form>
+                  </form> -->
+                  <a class="btn btn-primary" href="{{ url('markets/'.$market->id.'/'.$reservation->id.'/payment') }}">Pay</a>
+                  @else
+                  <td>
+                    <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
+                      @csrf
+                      @method('PUT')
+                      <button class="btn btn-danger" type="submit" name="button">Cancel</button>
+                    </form>
+                  </td>
+                  @endif
                 </td>
                 <td>
                   <button disabled href="{{ url('/reservations/checkin/'.$market->id.'/'.$reservation->id ) }}" class="btn" style="background-color:gray; color:white">Check In</button>
@@ -156,15 +167,28 @@
                       <button class="btn btn-danger" type="submit" name="button">Cancel</button>
                     </form>
                   </td>
-                  @endif
+                @endif
                 @else
+                @if(\Auth::user()->type == 'seller')
                 <td>
-                  <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
+                  <!-- <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/pay') }}" method="post" class="has-confirm" data-message="Confirm to pay for reservation?">
                     @csrf
                     @method('PUT')
                     <button class="btn btn-primary" type="submit" name="button">Pay</button>
+                  </form> -->
+
+                  <a class="btn btn-primary" href="{{ url('markets/'.$market->id.'/'.$reservation->id.'/payment') }}">Pay</a>
+
+                </td>
+                @else
+                <td>
+                  <form action="{{ url('/markets/'.$market->id.'/'.$reservation->id.'/cancel') }}" method="post" class="has-confirm" data-message="Cancel reservation?">
+                    @csrf
+                    @method('PUT')
+                    <button class="btn btn-danger" type="submit" name="button">Cancel</button>
                   </form>
                 </td>
+                @endif
                 @endif
               </tr>
             @endif

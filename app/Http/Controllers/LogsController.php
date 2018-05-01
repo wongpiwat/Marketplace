@@ -10,6 +10,10 @@ use PDF;
 
 class LogsController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
     public function index() {
       $this->authorize('viewAll', Log::class);
 

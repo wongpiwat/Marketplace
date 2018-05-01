@@ -17,6 +17,10 @@ use Auth;
 
 class MarketsController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
   public function index() {
       if(Auth::user()->type=="administrator"){
           $markets = Market::whereNull('deleted_at')->orderBy('updated_at','desc')->paginate(10);
@@ -70,7 +74,8 @@ class MarketsController extends Controller {
       $market->phone = $request->input('phone');
       $market->description = $request->input('description');
       $split = explode("/", $request->input('teaser'));
-      if (sizeof($split) == 3) {
+
+      if (sizeof($split) == 4) {
         $market->teaser = $split[3];
       } else {
         $market->teaser = null;
@@ -102,14 +107,16 @@ class MarketsController extends Controller {
         }
       }
 
-      $mytime = Carbon::now();
       $id_user = \Auth::user()->id;
       $id_market = Market::where('id','>',0)->max('id');
 
       if ($request->hasFile('market_layout')) {
         $file = $request->file('market_layout');
         $path = 'lo_'.$file->getClientOriginalName();
-        $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$id_market),$path);
+        // if (!file_exists('/storage/app/public/users/'.$id_user.'/markets/'.$market->id)) {
+        //     mkdir('/storage/app/public/users/'.$id_user.'/markets/'.$market->id, 0777, true);
+        // }
+        $file->move(storage_path('/public/users/'.$id_user.'/markets/'.$id_market),$path);
         DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$id_market, $path, 'layout']);
       }
 
@@ -194,23 +201,21 @@ class MarketsController extends Controller {
         $image->delete();
       }
 
-      $mytime = Carbon::now();
       $id_user = \Auth::user()->id;
-      $id_market = Market::where('id','>',0)->max('id');
 
       if ($request->hasFile('market_layout')) {
         $file = $request->file('market_layout');
-        $path = 'img_layout_'.$mytime->toDateTimeString().'_'.$file->getClientOriginalName();
-        $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$id_market),$path);
-        DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$id_market, $path, 'layout']);
+        $path = 'lo_'.$file->getClientOriginalName();
+        $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$market->id),$path);
+        DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$market->id, $path, 'layout']);
       }
 
       if ($request->hasFile('market_screenshot')) {
         $files = $request->file('market_screenshot');
         foreach($files as $file) {
-          $path = 'img_screenshot_'.$mytime->toDateTimeString().'_'.$file->getClientOriginalName();
-          $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$id_market),$path);
-          DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$id_market, $path, 'screenshot']);
+          $path = 'ss_'.$file->getClientOriginalName();
+          $file->move(base_path('/storage/app/public/users/'.$id_user.'/markets/'.$market->id),$path);
+          DB::insert('insert into market_images (market_id, path, type) values (?, ?, ?)', [$market->id, $path, 'screenshot']);
         }
       }
 
@@ -336,20 +341,5 @@ class MarketsController extends Controller {
       return redirect('/markets/'. $market->id .'/edit');
     }
 
-    public function cancelReservation(Market $market, Reservation $reservation){
-      $this->authorize('update', $reservation);
-
-      $reservation->is_paid = false;
-      $reservation->reserved_by = null;
-      $reservation->save();
-
-      $log = new Log;
-      $log->topic = 'CANCEL RESERVATION';
-      $log->event = 'ID: '.$reservation->id;
-      $log->created_by = \Auth::user()->id;
-      $log->save();
-
-      return redirect('/markets/'. $market->id);
-    }
 
 }

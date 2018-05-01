@@ -46,6 +46,7 @@ class MarketPolicy
     public function update(User $user, Market $market)
     {
         //
+      
         return $user->id === $market->created_by;
     }
 

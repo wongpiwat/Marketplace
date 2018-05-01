@@ -134,7 +134,8 @@
       <div class="content">
         <div class="card">
           <div class="firstinfo">
-            <img src="{{ asset('storage/users/'.Auth::user()->id.'/profile/'.Auth::user()->image ) }}" />
+            <!-- <img src="{{ asset('storage/users/'.Auth::user()->id.'/profile/'.Auth::user()->image ) }}" /> -->
+            <img src="{{ asset('/images/user.png' ) }}">
             <div class="profileinfo">
               <h1> {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}} </h1>
               <h3>{{{ Auth::user()->type }}}</h3>

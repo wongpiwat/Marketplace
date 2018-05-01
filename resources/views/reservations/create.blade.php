@@ -5,24 +5,19 @@
   <div class="card-header" style="background-color:#F9C369;"></div>
   <h6><div class="card-header">RESERVE MARKET</div></h6>
   <div class="card-body">
+    <img class="img-fluid" style="width:100%;" src="{{ asset('storage/users/'.$market->created_by.'/markets/'.$market->id.'/'.$layout[0]->path ) }}">
+
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6" >
-        <img class="img-fluid" src="{{ asset('storage/users/'.$market->created_by.'/markets/'.$market->id.'/'.$layout[0]->path ) }}">
         <form id='setData' action="{{ url('/reservations/create/'. $market->id) }}" method="POST">
             @csrf
-
-
               <br>
-
-
-
                 <h3><label>Zone </label></h3>
                   <select id='zones' class="form-control" name="zones" onchange="setData()">
                     <br>
                       <br>
                         <br>
-
               <?php
                 if(isset($_POST['index'])){
                   for ($i = 0; $i < sizeof($zones); $i++) {

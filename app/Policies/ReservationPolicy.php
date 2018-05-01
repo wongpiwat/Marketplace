@@ -48,7 +48,8 @@ class ReservationPolicy
     public function update(User $user, Reservation $reservation)
     {
         //
-        return $user->id === $reservation->reserved_by;
+
+        return $user->id === $reservation->reserved_by || $user->type == 'organizer' || $user->type == 'administrator';
     }
 
     /**

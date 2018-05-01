@@ -15,8 +15,9 @@ Route::get('/reservations/create/{market}', 'ReservationsController@create')->wh
 Route::post('/reservations/create/{market}', 'ReservationsController@create')->where('market','[0-9]+');
 
 Route::delete('/markets/{market}/{zone}' , 'MarketsController@deleteZone')->where('market','[0-9]+')->where('zone','[0-9]+');
-Route::put('/markets/{market}/{reservation}/cancel' , 'MarketsController@cancelReservation')->where('market','[0-9]+')->where('reservation','[0-9]+');
+Route::put('/markets/{market}/{reservation}/cancel' , 'ReservationsController@cancelReservation')->where('market','[0-9]+')->where('reservation','[0-9]+');
 Route::put('/markets/{market}/{reservation}/pay' , 'ReservationsController@payReservation')->where('market','[0-9]+')->where('reservation','[0-9]+');
+Route::get('/markets/{market}/{reservation}/payment' , 'ReservationsController@paymentForm')->where('market','[0-9]+')->where('reservation','[0-9]+');
 
 Route::get('/markets/page/{market}','MarketsController@page')->where('market','[0-9]+');
 
