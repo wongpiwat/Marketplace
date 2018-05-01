@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 30, 2018 at 07:24 PM
+-- Generation Time: May 01, 2018 at 12:28 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -57,10 +57,10 @@ CREATE TABLE `feedbacks` (
 --
 
 INSERT INTO `feedbacks` (`id`, `topic`, `comment`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'ความสะดวก', 'ควรจะทำหลายๆจุดให้เข้าถึงง่ายกว่านี้นะครับ เช่น การแก้ไข การเข้าถึง', 4, '2018-04-30 17:14:24', '2018-04-30 17:14:24'),
-(2, 'สร้างตลาดยังไงครับ', 'คือผมหาปุ่มไม่เจออะครับ', 5, '2018-04-30 17:14:24', '2018-04-30 17:14:24'),
-(3, 'สร้างตลาดไม่สำเร๊จแต่จ่ายตังไปแล้วครับ', 'จ่ายเงินไปแล้วตลาดไม่ขึ้นหน้าเว็ปครับ ผมกดสร้างไปแล้วเรียบร้อยทุกขั้นตอนอะครับแต่ว่ามันไม่ขึ้นหน้าเวปอะครับช่วยตรวจสอบด้วยครับ', 6, '2018-04-30 17:14:24', '2018-04-30 17:14:24'),
-(4, 'มีซื้อ ad เพื่อให้ตลาดขึ้นไปหน้าแรกไหมครับ', 'ผมอยากให้ทุกคนเห็นตลาดผมครับ', 7, '2018-04-30 17:14:24', '2018-04-30 17:14:24');
+(1, 'ความสะดวก', 'ควรจะทำหลายๆจุดให้เข้าถึงง่ายกว่านี้นะครับ เช่น การแก้ไข การเข้าถึง', 4, '2018-05-01 10:25:49', '2018-05-01 10:25:49'),
+(2, 'สร้างตลาดยังไงครับ', 'คือผมหาปุ่มไม่เจออะครับ', 5, '2018-05-01 10:25:49', '2018-05-01 10:25:49'),
+(3, 'สร้างตลาดไม่สำเร๊จแต่จ่ายตังไปแล้วครับ', 'จ่ายเงินไปแล้วตลาดไม่ขึ้นหน้าเว็ปครับ ผมกดสร้างไปแล้วเรียบร้อยทุกขั้นตอนอะครับแต่ว่ามันไม่ขึ้นหน้าเวปอะครับช่วยตรวจสอบด้วยครับ', 6, '2018-05-01 10:25:49', '2018-05-01 10:25:49'),
+(4, 'มีซื้อ ad เพื่อให้ตลาดขึ้นไปหน้าแรกไหมครับ', 'ผมอยากให้ทุกคนเห็นตลาดผมครับ', 7, '2018-05-01 10:25:49', '2018-05-01 10:25:49');
 
 -- --------------------------------------------------------
 
@@ -113,12 +113,12 @@ CREATE TABLE `markets` (
 --
 
 INSERT INTO `markets` (`id`, `name`, `location`, `start_day`, `close_day`, `start_time`, `close_time`, `organizer_name`, `contact_name`, `email`, `phone`, `description`, `teaser`, `view`, `created_by`, `is_enabled`, `latitude`, `longitude`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'ตลาดสุรัติ', '50 ถนน งามวงศ์วาน แขวง ลาดยาว เขต จตุจักร กรุงเทพมหานคร 10900', '2018-04-30', '2018-05-03', '17:00:00', '02:00:00', 'SuratCorparation', 'Surat', 'surat_going@hotmail.com', '0968122727', 'true', 'rgvfKvl7zWA', 26, 1, 1, '13.846677', '100.569209', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(2, 'ตลาดเสรีมาร์เก็ต', 'ขวง เสนานิคม เขต จตุจักร กรุงเทพมหานคร 10900', '2018-05-01', '2018-06-01', '11:00:00', '17:00:00', 'Gundam', 'คุณแต้ว่', 'taweecc@hotmail.com', '0907811712', 'true', 'pk8HzIO_j3w', 35, 2, 1, '13.841535', '100.585973', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(3, 'ตลาดนัดสวนจตุจักร', 'Kamphaeng Phet 2 Rd, Khwaeng Chatuchak, Khet Chatuchak, กรุงเทพมหานคร 10900', '2018-06-30', '2018-11-03', '18:00:00', '01:00:00', 'Jatuka', 'jukrit', 'jukrit@hotmail.com', '026634354', 'ตลาดนัดสวนจตุจักร เป็นตลาดนัดที่ใหญ่ที่สุดในประเทศไทย ตลาดนัดแห่งนี้เป็นสถานที่ที่นักท่องเที่ยว ที่มาเที่ยวกรุงเทพฯ ทุกคนควรมา โดยเฉพาะนักช็อปทั้งหลาย เวลาเปิดปิดของตลาดนัดนั้น ', 'ORa7Pxo5xOQ', 40, 3, 1, '13.800101', '100.568266', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(4, 'ตลาดนัดรถไฟ รัชดา', '50 ถนน งามวงศ์วาน แขวง ลาดยาว เขต จตุจักร กรุงเทพมหานคร 10900', '2018-04-30', '2010-05-03', '17:00:00', '02:00:00', 'SuratCorparation', 'Surat', 'surat_going@hotmail.com', '0968122727', 'true', 'mIQtWbwAb3A', 25, 7, 1, '13.846677', '100.569209', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(5, 'ตลาดกัช', 'ตำบล ปากแพรก อำเภอเมืองกาญจนบุรี กาญจนบุรี 71000', '2018-05-10', '2018-05-13', '12:00:00', '24:00:00', 'Teangone', 'Mr.Teangkun', 'teangteang@hotmail.com', '0901547819', 'ตลาดนี้มีทั้งร้านค้าปลีกและแผงลอยด้านนอกซึ่งเน้นไปที่ลูกค้าซึ่งเป็นนักท่องเที่ยว ตลาดนี้ตั้งอยู่ตรงแยกราชปรารภและถนนเพชรบุรีในเขตราชเทวี ที่นี่ถือว่าเป็นหนึ่งในที่ซึ่งขายเสื้อผ้าในราคาที่ถูกที่สุดในใจกลางกรุงเทพมหานคร นอกจากเสื้อผ้าแล้วของที่ขายยังมีนาฬิกาข้อมือ หัตถกรรม และอื่น ๆ', '94wONqG3iDQ', 109, 10, 1, '14.044891', '99.577637', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(6, 'ตลาด4มุมเมือง', 'หมู่บ้าน ไวท์เครน อำเภอ ธัญบุรี ปทุมธานี 12110', '2018-05-10', '2018-07-03', '06:00:00', '18:00:00', 'fakedata@hotmail.com', 'Mr.Fake', 'fakeyub@hotmail.com', '09012345432', 'ตลาดเสื้อผ้าและเครื่องประดับ ของไทยที่สามารถนำสินค้าไปขาย โดยเปิดหน้าร้านขายของ หรือขายแบบออนไลน์ได้และเป็นตลาดที่รู้จักกันดีทั้งคนไทยและชาวต่างชาติก็คือ 4มุมเมือง', 'jkJ2bLYj_OY', 26, 12, 1, '13.841010', '100.593992', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL);
+(1, 'ตลาดสุรัติ', '50 ถนน งามวงศ์วาน แขวง ลาดยาว เขต จตุจักร กรุงเทพมหานคร 10900', '2018-04-30', '2018-05-03', '17:00:00', '02:00:00', 'SuratCorparation', 'Surat', 'surat_going@hotmail.com', '0968122727', 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท', 'rgvfKvl7zWA', 25, 1, 1, '13.846677', '100.569209', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(2, 'ตลาดเสรีมาร์เก็ต', 'ขวง เสนานิคม เขต จตุจักร กรุงเทพมหานคร 10900', '2018-05-01', '2018-06-01', '11:00:00', '17:00:00', 'Gundam', 'คุณแต้ว่', 'taweecc@hotmail.com', '0907811712', 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท', 'pk8HzIO_j3w', 35, 2, 1, '13.841535', '100.585973', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(3, 'ตลาดนัดสวนจตุจักร', 'Kamphaeng Phet 2 Rd, Khwaeng Chatuchak, Khet Chatuchak, กรุงเทพมหานคร 10900', '2018-06-30', '2018-11-03', '18:00:00', '01:00:00', 'Jatuka', 'jukrit', 'jukrit@hotmail.com', '026634354', 'ตลาดนัดสวนจตุจักร เป็นตลาดนัดที่ใหญ่ที่สุดในประเทศไทย ตลาดนัดแห่งนี้เป็นสถานที่ที่นักท่องเที่ยว ที่มาเที่ยวกรุงเทพฯ ทุกคนควรมา โดยเฉพาะนักช็อปทั้งหลาย เวลาเปิดปิดของตลาดนัดนั้น ', 'ORa7Pxo5xOQ', 40, 3, 1, '13.800101', '100.568266', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(4, 'ตลาดนัดรถไฟ รัชดา', '50 ถนน งามวงศ์วาน แขวง ลาดยาว เขต จตุจักร กรุงเทพมหานคร 10900', '2018-04-30', '2010-05-03', '17:00:00', '02:00:00', 'SuratCorparation', 'Surat', 'surat_going@hotmail.com', '0968122727', 'ทำเลทองสำหรับค้าขายเพื่อพ่อค้าแม่ค้าทั้งหลายที่สนใจขายของตามตลาดนัด เป็นอีกหนึ่งสถานที่ขายน่าสนใจ เปิดขายในเวลากลางคืน เป็นแหล่งช้อปปิ้งที่ถูกใจทุกเพศทุกวัย มีสินค้าหลากหลายไม่ว่าจะของกิน เสื้อผ้า หรือของใช้ต่างๆ เหมาะสำหรับแม่ค้าที่ขายสินค้าทุกประเภท', 'mIQtWbwAb3A', 25, 7, 1, '13.846677', '100.569209', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(5, 'ตลาดกัช', 'ตำบล ปากแพรก อำเภอเมืองกาญจนบุรี กาญจนบุรี 71000', '2018-05-10', '2018-05-13', '12:00:00', '24:00:00', 'Teangone', 'Mr.Teangkun', 'teangteang@hotmail.com', '0901547819', 'ตลาดนี้มีทั้งร้านค้าปลีกและแผงลอยด้านนอกซึ่งเน้นไปที่ลูกค้าซึ่งเป็นนักท่องเที่ยว ตลาดนี้ตั้งอยู่ตรงแยกราชปรารภและถนนเพชรบุรีในเขตราชเทวี ที่นี่ถือว่าเป็นหนึ่งในที่ซึ่งขายเสื้อผ้าในราคาที่ถูกที่สุดในใจกลางกรุงเทพมหานคร นอกจากเสื้อผ้าแล้วของที่ขายยังมีนาฬิกาข้อมือ หัตถกรรม และอื่น ๆ', '94wONqG3iDQ', 10, 10, 1, '14.044891', '99.577637', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(6, 'ตลาด4มุมเมือง', 'หมู่บ้าน ไวท์เครน อำเภอ ธัญบุรี ปทุมธานี 12110', '2018-05-10', '2018-07-03', '06:00:00', '18:00:00', 'fakedata@hotmail.com', 'Mr.Fake', 'fakeyub@hotmail.com', '09012345432', 'ตลาดเสื้อผ้าและเครื่องประดับ ของไทยที่สามารถนำสินค้าไปขาย โดยเปิดหน้าร้านขายของ หรือขายแบบออนไลน์ได้และเป็นตลาดที่รู้จักกันดีทั้งคนไทยและชาวต่างชาติก็คือ 4มุมเมือง', 'jkJ2bLYj_OY', 26, 12, 1, '13.841010', '100.593992', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -141,26 +141,24 @@ CREATE TABLE `market_images` (
 --
 
 INSERT INTO `market_images` (`id`, `market_id`, `path`, `type`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'm11.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(2, 1, 'm12.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(3, 1, 'layout1.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(4, 2, 'layout2.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(5, 2, 'rat.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(6, 2, 'poom.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(7, 2, 'nut.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(8, 3, 'layout3.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(9, 3, 'm31.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(10, 3, 'm32.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(11, 3, 'img_screenshot_2018-04-30 14-36-00_กก.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(12, 4, 'img_layout_2018-04-30 14-36-00_layoud.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(13, 4, 'img_screenshot_2018-04-30 14-36-00_4.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(14, 4, 'img_screenshot_2018-04-30 14-36-00_11.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(15, 4, 'img_screenshot_2018-04-30 14-36-00_nn.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(16, 5, 'img_screenshot_2018-04-30 14-36-00_3วว.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(17, 5, 'img_layout_2018-04-30 14-36-00_layoutaw.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(18, 6, 'img_screenshot_2018-04-30 14-36-00_3พพ.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(19, 6, 'img_screenshot_2018-04-30 14-36-00_3ออ.jpg', 'screenshot', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(20, 6, 'img_layout_2018-04-30 14-36-00_layoutฟ.jpg', 'layout', '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL);
+(1, 1, 'ss_3.jpg', 'screenshot', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(2, 1, 'lo_layout.jpg', 'layout', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(3, 2, 'lo_layout.jpg', 'layout', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(4, 2, 'ss_1.jpg', 'screenshot', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(5, 2, 'ss_2.jpg', 'screenshot', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(6, 2, 'ss_3.jpg', 'screenshot', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(7, 3, 'lo_layout3.jpg', 'layout', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(8, 3, 'ss_m31.jpg', 'screenshot', '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(9, 3, 'ss_m32.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(10, 3, 'ss_m33.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(11, 4, 'lo_ss.jpg', 'layout', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(12, 4, 'ss_1.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(13, 4, 'ss_nn.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(14, 5, 'lo_layoutaw.jpg', 'layout', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(15, 5, 'ss_3.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(16, 6, 'ss_31.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(17, 6, 'ss_32.jpg', 'screenshot', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(18, 6, 'lo_layout.jpg', 'layout', '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -179,18 +177,18 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(133, '2014_10_12_000000_create_users_table', 1),
-(134, '2014_10_12_100000_create_password_resets_table', 1),
-(135, '2015_04_25_050956_create_markets_table', 1),
-(136, '2018_04_25_050957_create_zones_table', 1),
-(137, '2018_04_25_055826_create_reservations_table', 1),
-(138, '2018_04_25_072037_create_check_ins_table', 1),
-(139, '2018_04_25_074412_create_market_images_table', 1),
-(140, '2018_04_25_075646_create_webboards_table', 1),
-(141, '2018_04_25_081152_create_webboard_replies_table', 1),
-(142, '2018_04_25_083531_create_logs_table', 1),
-(143, '2018_04_27_032229_create_verify_users_table', 1),
-(144, '2018_04_27_201546_create_feedbacks_table', 1);
+(469, '2014_10_12_000000_create_users_table', 1),
+(470, '2014_10_12_100000_create_password_resets_table', 1),
+(471, '2015_04_25_050956_create_markets_table', 1),
+(472, '2018_04_25_050957_create_zones_table', 1),
+(473, '2018_04_25_055826_create_reservations_table', 1),
+(474, '2018_04_25_072037_create_check_ins_table', 1),
+(475, '2018_04_25_074412_create_market_images_table', 1),
+(476, '2018_04_25_075646_create_webboards_table', 1),
+(477, '2018_04_25_081152_create_webboard_replies_table', 1),
+(478, '2018_04_25_083531_create_logs_table', 1),
+(479, '2018_04_27_032229_create_verify_users_table', 1),
+(480, '2018_04_27_201546_create_feedbacks_table', 1);
 
 -- --------------------------------------------------------
 
@@ -236,7 +234,7 @@ CREATE TABLE `users` (
   `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` enum('seller','organizer','administrator') COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_vertified` tinyint(1) NOT NULL DEFAULT '0',
   `is_enabled` tinyint(1) NOT NULL DEFAULT '1',
@@ -251,20 +249,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `first_name`, `last_name`, `address`, `birthday`, `phone`, `image`, `type`, `is_vertified`, `is_enabled`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'judge@admin', '$2y$10$lNSjKRS8u5BxyCSYYBN6IeM03kuiox8bNvl1c4hhJqVYC29nZiD.G', 'Judge', 'Champhole', 'asdasdasdasd', '1997-02-02', '0955555555', '', 'administrator', 1, 1, 'X91KfzPoaSclZG3gp3hlGfWOL6pbfOzMpCy93aHUXuRtdnmRkkKfPIYOu5R6', '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(2, 'poom@com', '$2y$10$j5qsr1nm8ZQo8cTWMDXRy.bDZF3qP/wOcTSL6P9BY.sH5Er/OLk.G', 'Wongpiwat', 'Sangiam', 'Bangkok, Thailand', '1997-02-02', '0955555555', '', 'seller', 1, 1, '4Y09nbchCa6C78kr4dljeYLjomJOzCzurk6tfthsRFtEp09WI7WhFs9jaZM8', '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(3, 'nut@hotmail.com', '$2y$10$4PnjRA4cmLv8WYwf9u5XX.vAgY56ydDYhUaLsxnfty9QGLhqNiE6q', 'supanut', 'thiensuwan', '19/3 ชุมชน นิรันดร์ ถ.โกศลมหาราช ต.วศิล อ.เมือง จ.เชียงใหม่ 13049 ', '1996-02-02', '0830327834', '', 'administrator', 1, 1, NULL, '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(4, 'surat@hotmail.com', '$2y$10$YoqybQ.fqb.9M5ZeS1cSauK4NYc57lYw6AFwaqKQfCUUjSxxM/A0.', 'Surat', 'Panittrakul', '158/3 หมู่ 2 ตำบนบางตะบูนออก อำเภอบ้านแหลม จังหวัดเพชรบุรี 76110', '2003-05-02', '0839238902', '', 'seller', 1, 1, NULL, '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(5, 'sacchonwebtech@speed.th', '$2y$10$UIBBah1gCgO8irFr19FW4uH4HZTIdjjW5qrquSUTqVSLjZWIuhpHS', 'Sacc', 'Chonlewgern', 'Bang Kruai District Nonthaburi 11130', '1999-09-09', '0337678548', '', 'administrator', 1, 1, NULL, '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(6, 'starfluke@gmail.com', '$2y$10$jOVxAXRbCX5zz7dPgpOnKOKpW4.REq7TScHwJgmXmXlhGUcc1o5LO', 'Surat', 'JunOC', 'Tambon Bang Khanun, Amphoe Bang Kruai Chang Wat Nonthaburi 11130', '2000-01-02', '0786543321', '', 'administrator', 1, 1, NULL, '2018-04-30 17:14:23', '2018-04-30 17:14:23', NULL),
-(7, 'marvelman@tu.th', '$2y$10$QHUL6pZhsPF0GbFRwn68j.Hjfhg0/VpLtrLddwiru.NLm9MriytHq', 'Marvel', 'Manmen', 'Tambon Na Wang Hin, Amphoe Phanat Nikhom Chang Wat Chon Buri 20140', '1997-07-02', '0665461277', '', 'organizer', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(8, 'Jayza888@hotmail.com', '$2y$10$7t0XJHTPIF43KBNHukU5XOaMrrgJoU9txJbeBGxV93Pr3yZW00Aoa', 'Jakarin', 'Pondikul', 'Phanat Nikhom District Chon Buri', '2008-01-09', '0787865455', '', 'seller', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(9, 'boom_in@hotmail.com', '$2y$10$Yym6TOZSHObYiNa.319zpeouXcDcvxr972rc6sorxh3yHM1JyA0AW', 'Anaphat', 'Pombangmark', 'Tambon Mon Nang, Amphoe Phanat Nikhom Chang Wat Chon Buri 20140', '1967-10-02', '0877199259', '', 'seller', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(10, 'punch_huaterk@pra.ch', '$2y$10$ujcDEppzI4W435GrHORNDuODwzUWF0HzNX3GvzG0ynU3Akqvhsx/2', 'Nattanon', 'Bunyasing', 'Lat Bua Luang District Phra Nakhon Si Ayutthaya', '1997-06-10', '0876672133', '', 'organizer', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(11, '11userfake@fake.com', '$2y$10$FdH0Bd.jwFoICoxqgDe1feiio9l/9AZvOTNYhn11wxXAShabCqQfu', 'Umakorn', 'Boychobmark', 'Lat Yao District Nakhon Sawan', '1995-03-02', '0673345123', '', 'seller', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(12, 'thetoyke@hotmail.com', '$2y$10$87SbbWFXhQk2LmetrvshxO/c1x45p.mzOCkMO.IbFdm9jAbWu4akK', 'Toy', 'DuckStation', 'Nong Bua Lam Phu', '1997-02-02', '0978555355', '', 'organizer', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(13, 'ggdragon99@gmail.com', '$2y$10$JmdunWYFM.aKlcSEyWc89OEEF1x8SaSnxhY8/RCIw5xij3KHuynE2', 'Jarukio', 'Dego', 'Lom Kao District Phetchabun', '1977-07-06', '0897787676', '', 'organizer', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(14, 'kannonroksud@webtech.ku', '$2y$10$MVoAodhcE9UFoPgLYOrGj.yYQmGQE8quWOM1Oi1gBpx1T/Gc0HcgG', 'Kanoon', 'Rokrakkernjud', 'Mueang Ratchaburi District Ratchaburi', '2011-11-09', '0781741313', '', 'organizer', 1, 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL);
+(1, 'judge@admin', '$2y$10$gZccAM9SFX08hxg6389NQOLyi9lFtCFFnLBthGEJmg6fwZ90UoXmC', 'Judge', 'Champhole', 'asdasdasdasd', '1997-02-02', '0955555555', '', 'administrator', 1, 1, NULL, '2018-05-01 10:25:47', '2018-05-01 10:25:47', NULL),
+(2, 'poom@com', '$2y$10$.iTsdH7BAUfBc4.eycuRo.bv88QwKSdL/xe/hjHkAPGg/ml9CKj0i', 'Wongpiwat', 'Sangiam', 'Bangkok, Thailand', '1997-02-02', '0955555555', '', 'seller', 1, 1, NULL, '2018-05-01 10:25:47', '2018-05-01 10:25:47', NULL),
+(3, 'nut@hotmail.com', '$2y$10$hBhU3pRreMSS6wW//eMf1OPjcwOA9Pvg2GQS2Slh4fXU5Mh8mz9qG', 'supanut', 'thiensuwan', '19/3 ชุมชน นิรันดร์ ถ.โกศลมหาราช ต.วศิล อ.เมือง จ.เชียงใหม่ 13049 ', '1996-02-02', '0830327834', '', 'administrator', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(4, 'surat@hotmail.com', '$2y$10$1JZN3s2EwjuZfjs7xieAvuAZ.rSQxXiy2NNOzyEjajxLoYMDb1ahi', 'Surat', 'Panittrakul', '158/3 หมู่ 2 ตำบนบางตะบูนออก อำเภอบ้านแหลม จังหวัดเพชรบุรี 76110', '2003-05-02', '0839238902', '', 'seller', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(5, 'sacchonwebtech@speed.th', '$2y$10$0qJOEAUhjVphowbvYGmoAe.yg8prAst0Te/tyCqVCSeytaELG2yaa', 'Sacc', 'Chonlewgern', 'Bang Kruai District Nonthaburi 11130', '1999-09-09', '0337678548', '', 'administrator', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(6, 'starfluke@gmail.com', '$2y$10$5hSPonPQFpK3kvmKdhudN.Z/pMiYpCSDPpzY5nJieJhTnR.Kz8.Im', 'Surat', 'JunOC', 'Tambon Bang Khanun, Amphoe Bang Kruai Chang Wat Nonthaburi 11130', '2000-01-02', '0786543321', '', 'administrator', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(7, 'marvelman@tu.th', '$2y$10$W0JO/mPTUf2GkCeuUdAAgOHH7d2CCJPU0HU8UZ8DKIPhFodZ6waEe', 'Marvel', 'Manmen', 'Tambon Na Wang Hin, Amphoe Phanat Nikhom Chang Wat Chon Buri 20140', '1997-07-02', '0665461277', '', 'organizer', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(8, 'Jayza888@hotmail.com', '$2y$10$WRFThP7ADjIxE8zggwPaE.ejieH5Tf/gMB4hvgTXPqTqkULK6RRFW', 'Jakarin', 'Pondikul', 'Phanat Nikhom District Chon Buri', '2008-01-09', '0787865455', '', 'seller', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(9, 'boom_in@hotmail.com', '$2y$10$oWqqbeEXa/IZgeV/jQjqeOLPeI7YxvD4M2EKmInyypUMrZrFe92re', 'Anaphat', 'Pombangmark', 'Tambon Mon Nang, Amphoe Phanat Nikhom Chang Wat Chon Buri 20140', '1967-10-02', '0877199259', '', 'seller', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(10, 'punch_huaterk@pra.ch', '$2y$10$dWYyu11zuw.7FxB53DcN.ObLn2kHKbdOu9tLa3lhR4esL8.Ke2r5.', 'Nattanon', 'Bunyasing', 'Lat Bua Luang District Phra Nakhon Si Ayutthaya', '1997-06-10', '0876672133', '', 'organizer', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(11, '11userfake@fake.com', '$2y$10$2WcS6e1LQRIFAz.oJf9A5.cHDMQQ/EiJ6Oa1k2po6EoAHj3aDRd42', 'Umakorn', 'Boychobmark', 'Lat Yao District Nakhon Sawan', '1995-03-02', '0673345123', '', 'seller', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(12, 'thetoyke@hotmail.com', '$2y$10$sHUViTUppw./MV2z6TQGNuDYHYGquNnMY8WPVKQoRTOWs68vvAKPC', 'Toy', 'DuckStation', 'Nong Bua Lam Phu', '1997-02-02', '0978555355', '', 'organizer', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(13, 'ggdragon99@gmail.com', '$2y$10$UNvoGwg3KJjJuearO2HTeO6c0.cKpJ05jQeq9sfHIys1zI7Xf5mie', 'Jarukio', 'Dego', 'Lom Kao District Phetchabun', '1977-07-06', '0897787676', '', 'organizer', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL),
+(14, 'kannonroksud@webtech.ku', '$2y$10$c1969F07YLQyCEE45bsNgOF4Vo7vehp4b8HY2xKsk8HiJitPN3KRC', 'Kanoon', 'Rokrakkernjud', 'Mueang Ratchaburi District Ratchaburi', '2011-11-09', '0781741313', '', 'organizer', 1, 1, NULL, '2018-05-01 10:25:48', '2018-05-01 10:25:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -304,9 +302,9 @@ CREATE TABLE `webboards` (
 --
 
 INSERT INTO `webboards` (`id`, `topic`, `type`, `details`, `created_by`, `market_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'สอบถามสถานที่', 'general', 'อยากสอบถามว่าอาหารไทยอยู่ตรงไหนครับ', 1, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(2, 'สอบถามอาหารแถวในเมืองลพบุรี', 'general', 'ร้านอาหารใกล้สถานที่ท่องเที่ยวที่มีวิวสวยๆอยู่ตรงไหนบ้างครับ', 2, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL),
-(3, 'สวัสดีครับ', 'general', 'มีใครอยู่ไหม?', 3, NULL, '2018-04-30 17:14:24', '2018-04-30 17:14:24', NULL);
+(1, 'สอบถามสถานที่', 'general', 'อยากสอบถามว่าอาหารไทยอยู่ตรงไหนครับ', 1, NULL, '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(2, 'สอบถามอาหารแถวในเมืองลพบุรี', 'general', 'ร้านอาหารใกล้สถานที่ท่องเที่ยวที่มีวิวสวยๆอยู่ตรงไหนบ้างครับ', 2, NULL, '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL),
+(3, 'สวัสดีครับ', 'general', 'มีใครอยู่ไหม?', 3, NULL, '2018-05-01 10:25:49', '2018-05-01 10:25:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -468,13 +466,13 @@ ALTER TABLE `markets`
 -- AUTO_INCREMENT for table `market_images`
 --
 ALTER TABLE `market_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=481;
 
 --
 -- AUTO_INCREMENT for table `reservations`
